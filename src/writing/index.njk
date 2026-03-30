@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+title: The Library
+description: Essays, reflections, and working papers
+---
+
+<div class="writing-page">
+
+  <p class="section-back">
+    <a href="/">← Home</a>
+  </p>
+
+  <section class="writing-top">
+    <div class="writing-intro">
+      <h1>The Library</h1>
+      <p class="page-intro">
+        This library gathers essays, reflections, notes, and working papers written
+        over time and revisited as thought matures. The collection is organized for
+        browsing rather than chronology, allowing readers to enter through subject,
+        form, or a few suggested starting points.
+      </p>
+    </div>
+
+    <aside class="panel panel-begin">
+      <h2>Begin Here</h2>
+      <p>A few pieces that introduce the voice and structure of the library.</p>
+
+      <ul class="link-list">
+        <li><a href="/writing/a-voice-and-a-wilderness/">A Voice and a Wilderness</a></li>
+        <li><a href="/writing/on-writing/">On Writing</a></li>
+        <li><a href="#">How to Use This Site</a></li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="writing-grid">
+    <div class="panel">
+      <h2>Browse by Form</h2>
+      <p>The library includes several types of writing.</p>
+
+      <ul class="link-list">
+        <li><a href="#">Essays</a></li>
+        <li><a href="#">Reflections</a></li>
+        <li><a href="#">Working Papers</a></li>
+        <li><a href="#">Notes</a></li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>Browse by Topic</h2>
+      <p>Subjects explored across the collection.</p>
+
+      <ul class="link-list">
+        <li><a href="#">Faith & Theology</a></li>
+        <li><a href="#">Institutions & Leadership</a></li>
+        <li><a href="#">Endorsement Ministry</a></li>
+        <li><a href="#">Public Life & Ethics</a></li>
+        <li><a href="#">Personal Reflections</a></li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>Browse by Project</h2>
+      <p>Modules written for specific outcomes.</p>
+
+      <ul class="link-list">
+        <li><a href="#">Endorsement Ministry</a></li>
+        <li><a href="/pluralism/">Pluralism</a></li>
+        <li><a href="#">Covenantal Economics</a></li>
+        <li><a href="#">Voter Identification</a></li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>Recent Additions</h2>
+      <p>Newly added or recently revised pieces.</p>
+
+      <ul class="link-list">
+        {% for post in collections.essays %}
+          {% if loop.index0 < 5 %}
+            <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+</div>

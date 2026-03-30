@@ -1,0 +1,943 @@
+:root { --max: 1200px; --text: #1b1b1b; --muted:#555; --line:#e6e6e6; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Source Serif 4", Georgia, serif;
+  color: var(--text);
+  background: transparent;
+  position: relative;
+
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-feature-settings: "liga", "kern";
+}
+a { color: inherit; }
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.page-surface {
+  margin: 20px auto 10px;
+  padding: 0px 10px;
+
+  background: rgba(250, 249, 247, 0.42);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+.site-header {
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+  color: #f3eadc;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background-color: #5a4634;
+  background-image:
+    linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(0,0,0,0.08)),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255,255,255,0.045) 0px,
+      rgba(255,255,255,0.045) 2px,
+      rgba(0,0,0,0.03) 6px,
+      rgba(0,0,0,0.03) 10px
+    );
+}
+.header-inner { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+.site-title{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #f3eadc;
+}
+
+.site-nav a{
+  text-decoration: none;
+  color: #f3eadc;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.site-nav a:hover {
+  color: #d6b78d;
+}
+.site-nav{
+  margin-left: auto;
+  display: flex;
+  gap: 50px;              /* updated spacing */
+  align-items: center;
+  position: relative;
+}
+
+.site-nav a{
+  margin-left: 0;
+}
+.site-nav a,
+.site-nav-toggle{
+  text-decoration: none;
+  color: #f3eadc;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.site-nav a:hover,
+.site-nav-toggle:hover{
+  color: #d6b78d;
+}
+
+.site-nav-item{
+  position: relative;
+}
+
+.site-nav-item--dropdown{
+  display: flex;
+  align-items: center;
+}
+
+.site-nav-menu{
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+  padding: 10px 12px;
+
+  background: rgba(244, 224, 201, 0.98);
+  border: 1px solid rgba(224,170,116,0.65);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  z-index: 9999;
+}
+.site-nav-toggle[aria-expanded="true"]{
+  color: #d6b78d;
+}
+
+.site-nav-menu{
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+  padding: 10px 12px;
+
+  background: rgba(238, 224, 203, 0.98);
+  border: 1px solid rgba(171, 124, 78, 0.90);
+  border-radius: 12px;
+  box-shadow:
+    0 2px 4px rgba(90, 56, 24, 0.16),
+    0 10px 24px rgba(0,0,0,0.20);
+
+  z-index: 50;
+}
+
+.site-nav-menu.is-open{
+  display: block;
+}
+
+.site-nav-menu .link-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav-menu .link-list li{
+  margin: 0;
+}
+
+.site-nav-menu .link-list li + li{
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(84,64,42,0.10);
+}
+
+.site-nav-menu .link-list a{
+  display: block;
+  color: rgba(27,27,27,0.92);
+  text-decoration: none;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.site-nav-menu .link-list a:hover{
+  text-decoration: underline;
+  color: rgba(90,56,24,0.95);
+}
+
+.site-footer { 
+  padding: 4px 0; 
+  color: var(--muted); 
+}
+
+.footer-inner { 
+  display:flex; 
+  justify-content:space-between; 
+  gap: 12px; 
+  flex-wrap: wrap; 
+}
+.hero {
+  padding: 32px 0 15px;
+}
+.hero-text h1 {
+  margin: 1px 0 0px;
+  font-size: 44px;
+  letter-spacing: -0.2px;
+  font-family: "Cormorant Garamond", serif;  /* now applies on desktop too */
+  font-weight: 600;
+}
+.tagline { margin: 0 0 5px; color: var(--muted); font-size: 16px; }
+.intro {
+  margin: 18px 0 0 12px;   /* pushes paragraph down */
+  max-width: 62ch;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+.archive-kicker {
+  margin: 0 0 9px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(27,27,27,0.85);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 640px) 260px;
+  gap: 22px;
+  align-items: start;
+}
+
+.hero-portrait {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.portrait {
+  width: 180px;             /* smaller */
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid rgba(230, 216, 191, 0.95);  /* soft frame */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  background: #fff;
+}
+@media (max-width: 850px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-portrait {
+    justify-content: flex-start;
+    margin-top: 12px;
+  }
+
+  .portrait {
+    width: 180px;
+  }
+
+}
+
+/* --- Home: second-row “shelf boxes” --- */
+.hero-panels{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.panel{
+  position: relative;
+  background: rgba(252, 248, 242, 0.88);
+  border: 1px solid rgba(224, 170, 116, 0.78);
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow:
+    0 1px 2px rgba(160,80,2,0.20),
+    0 4px 10px rgba(0,0,0,0.22);
+}
+
+.panel h2{
+  margin: 0 0 6px;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+}
+
+.panel p{
+  margin: 0 0 10px;
+  color: rgba(27,27,27,0.80);
+  line-height: 1.4;
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+.panel--featured .featured-primary{
+  margin-top: 10px;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.panel--featured .featured-primary a{
+  text-decoration: none;
+  border-bottom: 1px solid rgba(27,27,27,0.25);
+}
+
+.panel--featured .featured-primary a:hover{
+  border-bottom-color: rgba(27,27,27,0.6);
+}
+
+.panel--featured .featured-secondary{
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: rgba(27,27,27,0.70);
+}
+
+.panel--featured .featured-secondary span{
+  margin-right: 6px;
+  font-style: italic;
+}
+
+.panel--featured .featured-secondary a{
+  text-decoration: none;
+  color: rgba(27,27,27,0.85);
+}
+
+.panel--featured .featured-secondary a:hover{
+  text-decoration: underline;
+}
+
+.panel--featured p{
+  margin-bottom: 8px;
+}
+
+.panel--featured .featured-primary{
+  margin-top: 6px;
+}
+
+.panel--featured .featured-secondary{
+  margin-top: 6px;
+}
+
+.panel p{
+  font-style: italic;
+  color: rgba(27,27,27,0.75);
+}
+
+.panel-links{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.panel-links a{
+  text-decoration: none;
+  color: rgba(27,27,27,0.92);
+  border-bottom: 1px solid rgba(27,27,27,0.18);
+}
+
+.panel-links a:hover{
+  border-bottom-color: rgba(27,27,27,0.45);
+}
+
+.about-forward-link{
+  margin: 14px 0 6px;
+  font-size: 0.95rem;
+  color: rgba(27,27,27,0.65);
+  text-align: right;
+}
+
+.about-forward-link a{
+  text-decoration: none;
+  border-bottom: 1px solid rgba(160,80,2,0.35);
+  padding-bottom: 1px;
+}
+
+.about-forward-link a:hover{
+  color: rgba(160,80,2,0.9);
+  border-bottom-color: rgba(160,80,2,0.6);
+}
+
+@media (max-width: 850px){
+  .hero-panels{
+    grid-template-columns: 1fr;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2; /* map is furthest back */
+
+  background: url("/assets/images/map-texture.png") center / cover no-repeat;
+  filter: blur(0.4px) saturate(0.95) contrast(0.95);
+  opacity: 1; /* keep 1; control intensity with ::after */
+}
+
+/* wash layer ABOVE the map */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* wash above map */
+
+  background: rgba(244, 201, 158, 0.55); /* start here (not 0.85) */
+}
+
+.page-hero{
+  margin-bottom: 32px;
+}
+
+.page-hero h1{
+  font-size: 36px;
+  font-family: "Cormorant Garamond", serif;
+  margin: 0 0 8px;
+}
+
+/* ======================================================
+   WRITING PAGE LAYOUT
+   ====================================================== */
+
+.writing-page{
+  position: relative;
+  padding: 6px 22px 10px;
+}
+
+.writing-top{
+  display: grid;
+  grid-template-columns: 560px 360px;
+  gap: 12px;
+  align-items: start;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.writing-intro{
+  margin-left: 0px;
+}
+
+.writing-intro h1{
+  font-size: 36px;
+  font-family: "Cormorant Garamond", serif;
+  margin: 0 0 8px;
+}
+
+.writing-intro .page-intro{
+  max-width: 52ch;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.writing-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.panel-begin{
+  background: rgba(249, 229, 210, 0.96);
+  border: 1px solid rgba(219, 170, 130, 0.88);
+  margin-top: 12px;
+}
+
+.link-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-list li{
+  margin: 6px 0;
+}
+
+@media (max-width: 980px){
+  .writing-top{
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+
+  .writing-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .writing-intro{
+    margin-left: 0;
+  }
+
+  .panel-begin{
+    margin-top: 0;
+  }
+
+  .writing-page{
+    padding: 0 10px 16px;
+  }
+}
+.panel{
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================================================
+   ENDORSEMENT SHELF PAGE
+   ====================================================== */
+
+.endorsement-page{
+  padding: 10px 22px 18px;
+}
+
+.endorsement-page .essay-back{
+  margin-left: 0;
+  margin-bottom: 14px;
+}
+
+.endorsement-layout{
+  display: grid;
+  grid-template-columns: 440px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.endorsement-subtitle{
+  margin: 0px 0 24px;
+    font-size: 1.02rem;
+  line-height: 1.4;
+  color: rgba(27,27,27,0.72);
+  text-align: center;
+  max-width: 340px;
+}
+
+.endorsement-nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  position: relative;   /* <-- this is the key */
+}
+
+.endorsement-nav h1{
+  margin: 0 0 22px;
+  font-size: 46px;
+  line-height: 1.10;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  text-align: center;
+  max-width: 320px;
+}
+
+.endorsement-nav-group{
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 14px;
+}
+
+.endorsement-nav-group:first-of-type{
+  margin-top: 5px;
+}
+
+.endorsement-nav-toggle{
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(224, 170, 116, 0.78);
+  border-radius: 16px;
+  background: rgba(252, 248, 242, 0.92);
+  box-shadow:
+    0 1px 2px rgba(160,80,2,0.18),
+    0 4px 10px rgba(0,0,0,0.12);
+  padding: 18px 16px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: rgba(27,27,27,0.95);
+  cursor: pointer;
+}
+
+.endorsement-nav-toggle:hover{
+  background: rgba(249, 229, 210, 0.96);
+}
+
+.endorsement-nav-toggle[aria-expanded="true"]{
+  background: rgba(249, 229, 210, 0.98);
+  box-shadow:
+    inset 0 1px 2px rgba(0,0,0,0.04),
+    0 1px 2px rgba(160,80,2,0.18),
+    0 4px 10px rgba(0,0,0,0.12);
+}
+
+.endorsement-nav-menu{
+  display: none;
+  position: absolute;
+
+  top: 180px;              /* ← fixed vertical position */
+  left: calc(100% - 28px); /* to the right of nav column */
+
+  min-width: 280px;
+  max-width: 340px;
+  padding: 12px 14px;
+
+  background: rgba(238, 224, 203, 0.98);
+  border: 1px solid rgba(171, 124, 78, 0.95);
+  border-radius: 14px;
+
+  box-shadow:
+    0 2px 4px rgba(90, 56, 24, 0.18),
+    0 10px 24px rgba(0,0,0,0.24);
+
+  z-index: 20;
+}
+
+.endorsement-nav-menu.is-open{
+  display: block;
+}
+
+.endorsement-nav-menu .link-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.endorsement-nav-menu .link-list li{
+  margin: 0;
+}
+
+.endorsement-nav-menu .link-list li + li{
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(84,64,42,0.12);
+}
+
+.endorsement-nav-menu .link-list a{
+  display: block;
+  text-decoration: none;
+  color: rgba(27,27,27,0.92);
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.endorsement-nav-menu .link-list a:hover{
+  text-decoration: underline;
+}
+
+.endorsement-main{
+  min-width: 0;
+}
+
+.endorsement-feature{
+  margin-top: 12px;
+  margin-bottom: 14px;
+}
+
+.endorsement-feature h2{
+  margin: 0 0 12px;
+  font-size: 1.55rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+.endorsement-feature-card{
+  background: rgba(252, 248, 242, 0.88);
+  border: 1px solid rgba(224, 170, 116, 0.78);
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow:
+    0 1px 2px rgba(160,80,2,0.20),
+    0 4px 10px rgba(0,0,0,0.22);
+}
+
+
+.endorsement-feature-card h3{
+  margin: 0 0 4px;
+  font-size: 1.35rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+.endorsement-feature-card h3 a{
+  text-decoration: none;
+}
+
+.endorsement-feature-card h3 a:hover{
+  text-decoration: underline;
+}
+
+.endorsement-feature-subtitle{
+  margin: 0 0 14px;
+  font-size: 0.96rem;
+  color: rgba(27,27,27,0.74);
+}
+
+.endorsement-feature-excerpt{
+  font-size: 1.02rem;
+  line-height: 1.42;
+}
+
+.endorsement-feature-excerpt p{
+  margin: 0 0 0.3em;
+}
+
+.endorsement-feature-more{
+  margin-top: 3px;
+  font-size: 0.95rem;
+}
+
+.endorsement-feature-more a{
+  text-decoration: none;
+  color: rgba(27,27,27,0.78);
+}
+
+.endorsement-feature-more a:hover{
+  text-decoration: underline;
+}
+
+.endorsement-howto{
+  background: rgba(252, 248, 242, 0.88);
+  height: auto;
+  overflow: visible;
+}
+
+.endorsement-howto h2{
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.endorsement-howto p{
+  max-width: none;
+}
+
+@media (max-width: 980px){
+  .endorsement-layout{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .endorsement-page{
+    padding: 8px 10px 18px;
+  }
+
+  .endorsement-nav h1{
+    font-size: 34px;
+  }
+}
+
+/* ======================================================
+   ESSAY PAGE
+   ====================================================== */
+
+.page-surface--essay{
+  background: rgba(255,250,244,0.75);
+}
+
+.essay-page{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px 24px 28px;
+}
+
+/* Keep all major essay elements on the same reading column */
+.essay-header,
+.essay-body,
+.essay-cadence,
+.essay-footer,
+.essay-related{
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.essay-back{
+  margin: 0 0 18px;
+  margin-left: -165px; /* pulls link to left edge of reading surface */
+  font-size: 0.98rem;
+  width: fit-content;
+}
+
+.essay-back a{
+  text-decoration: none;
+  color: rgba(27,27,27,0.72);
+}
+
+.essay-back a:hover{
+  color: rgba(27,27,27,0.92);
+}
+
+.section-back{
+  position: absolute;
+  top: 15px;
+  left: -8px;
+  margin: 0;
+  font-size: 0.98rem;
+  width: fit-content;
+  z-index: 5;
+}
+
+.section-back a{
+  text-decoration: none;
+  color: rgba(27,27,27,0.72);
+}
+
+.section-back a:hover{
+  color: rgba(27,27,27,0.92);
+}
+
+.essay-header{
+  margin-bottom: 35px;
+}
+
+.essay-header h1{
+  margin: 0 0 22px;
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+.essay-subtitle{
+  margin: 0 0 20px;
+  font-size: .98rem;
+  color: rgba(27,27,27,0.78);
+  line-height: 1.35;
+}
+
+.essay-meta{
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(27,27,27,0.65);
+}
+
+.essay-epigraph{
+  margin: 0 45px 28px;
+  padding: 0 0 0 18px;
+  border-left: 2px solid rgba(84,64,42,0.16);
+  color: rgba(27,27,27,0.82);
+}
+
+.essay-epigraph p{
+  font-size: 0.95rem;
+    margin: 0 0 6px;
+  font-style: italic;
+}
+
+.essay-epigraph footer{
+  font-size: 0.85rem;
+  color: rgba(27,27,27,0.68);
+}
+
+.essay-body{
+  font-size: 1.0rem;
+  color: rgba(27,27,27,0.92);
+  line-height: 1.58;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 6px;
+  background: rgba(255, 250, 244, 0.55);
+  border-radius: 8px;
+  padding: 6px 10px;
+  border: 1px solid rgba(224, 170, 116, 0.22);
+  border-radius: 10px;
+}
+
+.essay-body p{
+  margin: 0 0 1.2em;
+  text-wrap: pretty;
+  margin-bottom: 1.2em;
+}
+
+.essay-body h2,
+.essay-body h3{
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+.about-page h1{
+  margin-bottom: 12px;
+}
+
+.essay-cadence{
+  margin: 28px auto 18px;
+  text-align: center;
+  letter-spacing: 0.18em;
+  color: rgba(27,27,27,0.70);
+}
+
+.essay-footer{
+  margin: 8px auto 22px;
+  color: rgba(27,27,27,0.82);
+}
+
+.essay-footer p{
+  margin: 0 0 10px;
+}
+
+.essay-note{
+  font-size: 0.96rem;
+  color: rgba(27,27,27,0.68);
+  margin-bottom: 8px;
+}
+
+.essay-related{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(84,64,42,0.12);
+}
+
+.essay-related h2{
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.essay-related .link-list li{
+  margin: 4px 0;
+}
+
+@media (max-width: 850px){
+  .essay-page{
+    padding: 8px 10px 24px;
+  }
+
+  .essay-back{
+  margin-left: 0;
+  }
+
+  .essay-header h1{
+    font-size: 30px;
+  }
+
+  .essay-epigraph{
+    margin: 0 24px 24px;
+  }
+
+  .essay-body{
+    font-size: 1.02rem;
+    line-height: 1.64;
+  }
+
+  .essay-back,
+  .essay-header,
+  .essay-body,
+  .essay-cadence,
+  .essay-footer,
+  .essay-related{
+    max-width: 100%;
+  }
+}

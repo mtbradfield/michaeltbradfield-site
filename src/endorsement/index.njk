@@ -1,0 +1,137 @@
+---
+layout: layouts/base.njk
+title: The Ministry of Endorsement
+description: Essays, reflections, and documents related to endorsement ministry
+---
+
+<div class="endorsement-page">
+
+  <p class="essay-back"><a href="/">← Back to Home</a></p>
+
+  <div class="endorsement-layout">
+
+    <aside class="endorsement-nav">
+      <h1>The Ministry of<br>Endorsement</h1>
+
+      <p class="endorsement-subtitle">
+  Exploring endorsement ministry—its role, its structure, and its place within The United Methodist Church
+</p>
+
+<div class="endorsement-nav-group">
+  <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
+    Framing Reflections
+  </button>
+  <div class="endorsement-nav-menu">
+    <ul class="link-list">
+      {% for item in collections.endorsementItems %}
+        {% if item.data.form == "reflection" %}
+          <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+      <div class="endorsement-nav-group">
+  <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
+    Interpretive Essays
+  </button>
+  <div class="endorsement-nav-menu">
+    <ul class="link-list">
+      {% for item in collections.endorsementItems %}
+        {% if item.data.form == "essay" %}
+          <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="endorsement-nav-group">
+  <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
+    Foundational Documents
+  </button>
+  <div class="endorsement-nav-menu">
+    <ul class="link-list">
+      {% for item in collections.endorsementItems %}
+        {% if item.data.form == "white-paper" or item.data.form == "decision-paper" %}
+          <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+    </aside>
+
+    <main class="endorsement-main">
+
+      <section class="endorsement-feature">    
+        {% for item in collections.endorsementItems %}
+          {% if item.data.title == "The Hinge" %}
+            <article class="endorsement-feature-card">
+              <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+
+              {% if item.data.subtitle %}
+                <p class="endorsement-feature-subtitle">{{ item.data.subtitle }}</p>
+              {% endif %}
+
+              {% if item.data.feature_excerpt %}
+                <div class="endorsement-feature-excerpt">
+                  <p>{{ item.data.feature_excerpt }}</p>
+                </div>
+              {% endif %}
+
+                <p class="endorsement-feature-more">
+                  <a href="{{ item.url }}">Continue reading →</a>
+                </p>
+               </article>
+              {% endif %}
+            {% endfor %}
+          </section>
+
+      <section class="endorsement-howto panel">
+        <h2>How to Use This Section</h2>
+        <p>
+          This section is arranged as a working shelf rather than a chronological feed.
+          Some items are formal documents in PDF form. Others are essays or reflections
+          meant to frame the questions, stakes, and vocabulary of endorsement ministry.
+        </p>
+        <p>
+          Readers new to the subject may wish to begin with the framing reflection and
+          then move into the foundational papers. Those already familiar with the field
+          may prefer to enter directly through the documents most relevant to their
+          interests.
+        </p>
+      </section>
+
+    </main>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggles = document.querySelectorAll(".endorsement-nav-toggle");
+
+    toggles.forEach((toggle) => {
+      const menu = toggle.nextElementSibling;
+
+      toggle.setAttribute("aria-expanded", "false");
+      menu.classList.remove("is-open");
+
+      toggle.addEventListener("click", function () {
+        const isOpen = this.getAttribute("aria-expanded") === "true";
+
+        toggles.forEach((otherToggle) => {
+          otherToggle.setAttribute("aria-expanded", "false");
+          otherToggle.nextElementSibling.classList.remove("is-open");
+        });
+
+        if (!isOpen) {
+          this.setAttribute("aria-expanded", "true");
+          menu.classList.add("is-open");
+        }
+      });
+    });
+  });
+</script>

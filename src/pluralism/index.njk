@@ -1,0 +1,116 @@
+---
+layout: layouts/base.njk
+title: Pluralism
+description: Essays and papers exploring pluralism, public institutions, and religious life in common society
+---
+
+<div class="endorsement-page">
+
+<p class="essay-back"><a href="/">← Back to Home</a></p>
+
+  <div class="endorsement-layout">
+
+    <aside class="endorsement-nav">
+      <h1>Pluralism</h1>
+
+      <p class="endorsement-subtitle">
+        Essays and papers exploring religious diversity, public institutions, and life together in a constitutional order
+      </p>
+
+      <div class="endorsement-nav-group">
+        <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
+          Featured Work
+        </button>
+        <div class="endorsement-nav-menu">
+          <ul class="link-list">
+            <li><a href="/pluralism/rank-matters/">Rank Matters</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="endorsement-nav-group">
+        <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
+          Essays and Reflections
+        </button>
+        <div class="endorsement-nav-menu">
+          <ul class="link-list">
+            <li><span>Additional work forthcoming</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="endorsement-nav-group">
+        <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
+          Related Papers
+        </button>
+        <div class="endorsement-nav-menu">
+          <ul class="link-list">
+            <li><a href="/pluralism/rank-matters/">Rank Matters</a></li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="endorsement-main">
+
+      <section class="endorsement-feature">
+        <article class="endorsement-feature-card">
+          <h3><a href="/pluralism/rank-matters/">Rank Matters</a></h3>
+          <div class="endorsement-feature-excerpt">
+            <p>
+              A policy paper prepared for Congressional review examining proposals affecting
+              military chaplain rank insignia, religious representation, and the constitutional
+              balance that sustains the chaplaincy.
+            </p>
+          </div>
+          <p class="endorsement-feature-more">
+            <a href="/pluralism/rank-matters/">Open paper →</a>
+          </p>
+        </article>
+      </section>
+
+      <section class="endorsement-howto panel">
+        <h2>How to Use This Section</h2>
+        <p>
+          This shelf gathers essays and formal papers that engage questions of pluralism,
+          constitutional balance, public institutions, and the ordering of common life in a
+          religiously diverse society.
+        </p>
+        <p>
+          Some items will be reflective and interpretive. Others will be formal papers prepared
+          for public or institutional use. Together they explore how conviction, representation,
+          and institutional integrity are held in tension.
+        </p>
+      </section>
+
+    </main>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggles = document.querySelectorAll(".endorsement-nav-toggle");
+
+    toggles.forEach((toggle) => {
+      const menu = toggle.nextElementSibling;
+
+      toggle.setAttribute("aria-expanded", "false");
+      menu.classList.remove("is-open");
+
+      toggle.addEventListener("click", function () {
+        const isOpen = this.getAttribute("aria-expanded") === "true";
+
+        toggles.forEach((otherToggle) => {
+          otherToggle.setAttribute("aria-expanded", "false");
+          otherToggle.nextElementSibling.classList.remove("is-open");
+        });
+
+        if (!isOpen) {
+          this.setAttribute("aria-expanded", "true");
+          menu.classList.add("is-open");
+        }
+      });
+    });
+  });
+</script>
