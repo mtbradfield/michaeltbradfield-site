@@ -786,6 +786,55 @@ body::after {
 }
 
 /* ======================================================
+   CONTACT FORM
+   ====================================================== */
+
+.essay-body form {
+  margin-top: 24px;
+}
+
+.essay-body form p {
+  margin-bottom: 16px;
+}
+
+.essay-body label {
+  display: block;
+  font-weight: 500;
+  color: rgba(27,27,27,0.9);
+}
+
+.essay-body input,
+.essay-body textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  font: inherit;
+  color: rgba(27,27,27,0.95);
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(171,124,78,0.35);
+  border-radius: 8px;
+}
+
+.essay-body textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+.essay-body button {
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+  color: #f3eadc;
+  background: #5a4634;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+}
+
+.essay-body button:hover {
+  color: #d6b78d;
+}
+
+/* ======================================================
    ESSAY PAGE
    ====================================================== */
 
