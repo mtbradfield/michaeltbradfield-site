@@ -4,10 +4,9 @@ title: Message Sent
 description: Contact form confirmation
 permalink: /contact/thanks/
 
-back_link: /contact/
-back_label: Contact
+back_link: /
+back_label: Home
 ---
 
-Thank you for your message.
-
-It has been received. If a response is needed, I will reply as I am able.
+*Thank you for your message. It has been received.
+I will read what is sent and respond as I am able.*
