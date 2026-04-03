@@ -118,6 +118,4 @@ certainty, but by trust. Not by proof, but by hope.
 
 And perhaps that is the quiet truth of this forgotten day:
 
-That while Easter proclaims what is true,
-
-it is in the in-between that we learn how to live it.
+That while Easter proclaims what is true, it is in the in-between that we learn how to live it.
