@@ -24,17 +24,6 @@ first_written: April 2026
 tags:
   - reflection
 ---
-
-
-
-
-
-The
-“In-Between”
-
-*Between
-Good Friday and Easter Sunday*
-
 I’ve been thinking about that odd and often uncomfortable
 gap between the Good Friday trial, crucifixion, death, and entombment of Jesus,
 and the discovery of the empty tomb and the risen Christ on Easter Sunday.
