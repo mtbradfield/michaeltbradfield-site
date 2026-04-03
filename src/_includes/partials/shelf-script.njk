@@ -1,0 +1,39 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggles = document.querySelectorAll(".endorsement-nav-toggle, .shelf-nav-toggle");
+
+    function closeAllMenus() {
+      toggles.forEach((toggle) => {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.nextElementSibling.classList.remove("is-open");
+      });
+    }
+
+    toggles.forEach((toggle) => {
+      const menu = toggle.nextElementSibling;
+
+      toggle.setAttribute("aria-expanded", "false");
+      menu.classList.remove("is-open");
+
+      toggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+        const isOpen = this.getAttribute("aria-expanded") === "true";
+
+        closeAllMenus();
+
+        if (!isOpen) {
+          this.setAttribute("aria-expanded", "true");
+          menu.classList.add("is-open");
+        }
+      });
+
+      menu.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+    });
+
+    document.addEventListener("click", function () {
+      closeAllMenus();
+    });
+  });
+</script>

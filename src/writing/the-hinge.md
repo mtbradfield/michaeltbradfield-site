@@ -31,6 +31,11 @@ tags:
   - topic-theology
   - project-endorsement-ministry
 
+featured: true
+feature_home: true
+feature_home_order: 3
+feature_blurb: A framing essay on endorsement ministry, structure, and the hinge on which larger questions turn.
+
 author: Michael T. Bradfield
 ---
 

@@ -109,29 +109,4 @@ description: Essays, reflections, and documents related to endorsement ministry
   </div>
 </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggles = document.querySelectorAll(".endorsement-nav-toggle");
-
-    toggles.forEach((toggle) => {
-      const menu = toggle.nextElementSibling;
-
-      toggle.setAttribute("aria-expanded", "false");
-      menu.classList.remove("is-open");
-
-      toggle.addEventListener("click", function () {
-        const isOpen = this.getAttribute("aria-expanded") === "true";
-
-        toggles.forEach((otherToggle) => {
-          otherToggle.setAttribute("aria-expanded", "false");
-          otherToggle.nextElementSibling.classList.remove("is-open");
-        });
-
-        if (!isOpen) {
-          this.setAttribute("aria-expanded", "true");
-          menu.classList.add("is-open");
-        }
-      });
-    });
-  });
-</script>
+{% include "partials/shelf-script.njk" %}

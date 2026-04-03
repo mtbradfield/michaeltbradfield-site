@@ -1,0 +1,163 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "library"
+    label: "Library Items"
+    folder: "src/library-items"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/document-record.njk" }
+
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Permalink", name: "permalink", widget: "string" }
+
+      - { label: "Back Link", name: "back_link", widget: "string", required: false }
+      - { label: "Back Label", name: "back_label", widget: "string", required: false }
+
+      - label: "Form"
+        name: "form"
+        widget: "select"
+        options:
+          - { label: "Essay", value: "essay" }
+          - { label: "Reflection", value: "reflection" }
+          - { label: "Working Paper", value: "working-paper" }
+          - { label: "Note", value: "note" }
+
+      - label: "Level"
+        name: "level"
+        widget: "select"
+        options:
+          - { label: "Working", value: "working" }
+          - { label: "Foundational", value: "foundational" }
+
+      - label: "Forms Shelf Membership"
+        name: "forms"
+        widget: "select"
+        multiple: true
+        options:
+          - { label: "Essay", value: "essay" }
+          - { label: "Reflection", value: "reflection" }
+          - { label: "Working Paper", value: "working-paper" }
+          - { label: "Note", value: "note" }
+
+      - label: "Topic Shelf Membership"
+        name: "topics"
+        widget: "select"
+        multiple: true
+        options:
+          - { label: "Faith & Theology", value: "faith-theology" }
+          - { label: "Institutions & Leadership", value: "institutions-leadership" }
+          - { label: "Endorsement Ministry", value: "endorsement-ministry" }
+          - { label: "Public Life & Ethics", value: "public-life-ethics" }
+          - { label: "Personal Reflections", value: "personal-reflections" }
+
+      - label: "Project Shelf Membership"
+        name: "projects"
+        widget: "select"
+        multiple: true
+        options:
+          - { label: "Endorsement", value: "endorsement" }
+          - { label: "Pluralism", value: "pluralism" }
+          - { label: "Covenantal Economics", value: "covenantal-economics" }
+          - { label: "Voter Identification", value: "voter-identification" }
+          - { label: "Sacred Seasons", value: "sacred-seasons" }
+
+      - label: "Publication Status"
+        name: "publication_status"
+        widget: "select"
+        options:
+          - { label: "Private", value: "private" }
+          - { label: "Published", value: "published" }
+
+      - label: "Publication Platforms"
+        name: "publication_platforms"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - { label: "Substack", value: "substack" }
+
+      - { label: "Publication URL", name: "publication_url", widget: "string", required: false }
+      - { label: "Publication Date", name: "publication_date", widget: "string", required: false }
+
+      - { label: "Featured Anywhere", name: "featured", widget: "boolean", default: false }
+      - { label: "Show on Home Page", name: "feature_home", widget: "boolean", default: false }
+      - { label: "Home Feature Order", name: "feature_home_order", widget: "number", required: false, value_type: "int" }
+
+      - label: "Feature Section"
+        name: "feature_section"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Endorsement", value: "endorsement" }
+          - { label: "Pluralism", value: "pluralism" }
+          - { label: "Covenantal Economics", value: "covenantal-economics" }
+          - { label: "Voter Identification", value: "voter-identification" }
+          - { label: "Sacred Seasons", value: "sacred-seasons" }
+          - { label: "Essays", value: "essay" }
+          - { label: "Reflections", value: "reflection" }
+          - { label: "Working Papers", value: "working-paper" }
+          - { label: "Notes", value: "note" }
+          - { label: "Faith & Theology", value: "faith-theology" }
+          - { label: "Institutions & Leadership", value: "institutions-leadership" }
+          - { label: "Endorsement Ministry", value: "endorsement-ministry" }
+          - { label: "Public Life & Ethics", value: "public-life-ethics" }
+          - { label: "Personal Reflections", value: "personal-reflections" }
+
+      - { label: "Feature Section Order", name: "feature_section_order", widget: "number", required: false, value_type: "int" }
+      - { label: "Feature Blurb", name: "feature_blurb", widget: "text", required: false }
+
+      - { label: "Document File", name: "document_file", widget: "file", required: false }
+      - label: "Document Type"
+        name: "document_type"
+        widget: "select"
+        required: false
+        options:
+          - { label: "PDF", value: "pdf" }
+
+      - { label: "Author", name: "author", widget: "string", default: "Michael T. Bradfield" }
+      - { label: "First Written", name: "first_written", widget: "string", required: false }
+      - { label: "Revised", name: "revised", widget: "string", required: false }
+
+      - label: "Related Reading"
+        name: "related_reading"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - label: "Type"
+            name: "type"
+            widget: "select"
+            required: false
+            options:
+              - { label: "Essay", value: "essay" }
+              - { label: "Reflection", value: "reflection" }
+              - { label: "Working Paper", value: "working-paper" }
+              - { label: "Note", value: "note" }
+              - { label: "Shelf", value: "shelf" }
+              - { label: "Project", value: "project" }
+              - { label: "Topic", value: "topic" }
+
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options:
+          - { label: "Essay", value: "essay" }
+          - { label: "Reflection", value: "reflection" }
+          - { label: "Working Paper", value: "working-paper" }
+          - { label: "Note", value: "note" }
+
+      - { label: "Body", name: "body", widget: "markdown", required: false }

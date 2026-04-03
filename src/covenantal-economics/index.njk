@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: Pluralism
-description: Essays and papers exploring pluralism, public institutions, and religious life in common society
+title: Covenantal Economics
+description: Works exploring power, responsibility, legitimacy, and the moral consequences of institutional scale
 ---
 
 <div class="endorsement-page shelf-page">
@@ -11,11 +11,11 @@ description: Essays and papers exploring pluralism, public institutions, and rel
   <div class="endorsement-layout shelf-layout">
 
     <aside class="endorsement-nav shelf-nav">
-      <h1>Pluralism</h1>
+      <h1>Covenantal Economics</h1>
 
       <p class="endorsement-subtitle shelf-subtitle">
-        Essays and papers exploring diversity, public institutions, constitutional order,
-        and the ordering of common life in a society shaped by many convictions and communities.
+        Works that explore how power, responsibility, and legitimacy interact when institutions
+        grow large enough that harm becomes diffuse, legal, and impersonal.
       </p>
 
       <div class="endorsement-nav-group shelf-nav-group">
@@ -46,8 +46,7 @@ description: Essays and papers exploring pluralism, public institutions, and rel
         </button>
         <div class="endorsement-nav-menu shelf-nav-menu">
           <ul class="link-list">
-            <li><a href="/pluralism/rank-matters/">Rank Matters</a></li>
-            <li><a href="/pluralism/codes-matter/">Codes Matter</a></li>
+            <li><span>Additional work forthcoming</span></li>
           </ul>
         </div>
       </div>
@@ -58,29 +57,35 @@ description: Essays and papers exploring pluralism, public institutions, and rel
       <section class="endorsement-feature shelf-feature panel">
   <h2>Featured Works</h2>
 
-  {% for item in collections.featuredPluralism %}
+  {% if collections.featuredCovenantalEconomics.length > 0 %}
+    {% for item in collections.featuredCovenantalEconomics %}
+      <div class="endorsement-feature-excerpt shelf-feature-excerpt">
+        <p>
+          <strong><a href="{{ item.url }}">{{ item.data.title }}</a></strong><br>
+          {{ item.data.feature_blurb }}
+        </p>
+      </div>
+    {% endfor %}
+  {% else %}
     <div class="endorsement-feature-excerpt shelf-feature-excerpt">
-      <p>
-        <strong><a href="{{ item.url }}">{{ item.data.title }}</a></strong><br>
-        {{ item.data.feature_blurb }}
-      </p>
+      <p>Featured work will appear here as this shelf develops.</p>
     </div>
-  {% endfor %}
+  {% endif %}
 </section>
 
       <section class="endorsement-howto shelf-howto panel">
         <h2>About This Section</h2>
         <p>
-          This shelf gathers essays and formal papers that engage questions of pluralism,
-          constitutional order, public institutions, and the ordering of common life in a
-          diverse society.
+          This shelf gathers essays, reflections, and foundational documents that consider how
+          economic life is shaped not only by markets and incentives, but by moral obligation,
+          institutional power, and the terms by which people live together.
         </p>
         <p>
-          Some pieces are reflective in origin, emerging from lived experience or observation.
-          Others are more structured, developing arguments about representation, law, and
-          institutional responsibility. Together they trace a line of thought that is still in
-          motion—one that seeks to clarify how a society shaped by many convictions may still
-          live together within a shared framework.
+          A central concern here is scale: what happens when systems become large enough that
+          responsibility is dispersed, authority is obscured, and harm can be inflicted without
+          direct intent and yet with very real consequence. These works ask how legitimacy is
+          sustained or lost under such conditions, and what covenantal language might recover
+          that purely procedural language often cannot.
         </p>
       </section>
 

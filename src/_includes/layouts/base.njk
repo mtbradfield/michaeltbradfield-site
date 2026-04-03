@@ -40,7 +40,7 @@
       <ul class="link-list">
         <li><a href="/endorsement/">Endorsement</a></li>
         <li><a href="/pluralism/">Pluralism</a></li>
-        <li><a href="#">Covenantal Economics</a></li>
+        <li><a href="/covenantal-economics/">Covenantal Economics</a></li>
         <li><a href="#">Voter Identification</a></li>
       </ul>
     </div>
@@ -96,5 +96,17 @@
   });
 </script>
 
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function() {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>

@@ -228,6 +228,7 @@ a { color: inherit; }
   gap: 12px; 
   flex-wrap: wrap; 
 }
+
 .hero {
   padding: 32px 0 15px;
 }
@@ -305,7 +306,7 @@ a { color: inherit; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
-  margin-top: 36px;
+  margin-top: 28px;
 }
 
 .panel{
@@ -313,7 +314,7 @@ a { color: inherit; }
   background: rgba(252, 248, 242, 0.88);
   border: 1px solid rgba(224, 170, 116, 0.78);
   border-radius: 16px;
-  padding: 16px 18px;
+  padding: 12px 16px 13px;
   box-shadow:
     0 1px 2px rgba(160,80,2,0.20),
     0 4px 10px rgba(0,0,0,0.22);
@@ -326,17 +327,29 @@ a { color: inherit; }
 }
 
 .panel p{
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: rgba(27,27,27,0.80);
-  line-height: 1.4;
+  line-height: 1.38;
   max-width: 64ch;
   text-wrap: pretty;
+}
+
+.panel--featured p{
+  font-size: 0.95rem;
+  line-height: 1.35;
 }
 
 .panel--featured .featured-primary{
   margin-top: 10px;
   font-size: 1.05rem;
   font-weight: 500;
+}
+
+.panel--featured .featured-item{
+  margin-left: 22px;   /* try 16–22px range */
+  margin-top: 4px;
+  font-size: 1.02rem;
+  line-height: 1.28;
 }
 
 .panel--featured .featured-primary a{
@@ -385,12 +398,17 @@ a { color: inherit; }
   color: rgba(27,27,27,0.75);
 }
 
+.panel--start p{
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
 .panel-links{
   list-style: none;
-  padding: 0;
+  padding: 0 0 0 22px;
   margin: 0;
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .panel-links a{
@@ -400,6 +418,22 @@ a { color: inherit; }
 }
 
 .panel-links a:hover{
+  border-bottom-color: rgba(27,27,27,0.45);
+}
+
+.panel--featured .featured-item{
+  margin-top: 4px;
+  font-size: 1.02rem;
+  line-height: 1.28;
+}
+
+.panel--featured .featured-item a{
+  text-decoration: none;
+  border-bottom: 1px solid rgba(27,27,27,0.22);
+  color: rgba(27,27,27,0.92);
+}
+
+.panel--featured .featured-item a:hover{
   border-bottom-color: rgba(27,27,27,0.45);
 }
 
@@ -543,16 +577,16 @@ body::after {
 }
 
 /* ======================================================
-   ENDORSEMENT SHELF PAGE
+   SHELF PAGE TEMPLATE
    ====================================================== */
 
 .endorsement-page{
-  padding: 10px 22px 18px;
+  padding: 0px 22px 8px;
 }
 
 .endorsement-page .essay-back{
   margin-left: 0;
-  margin-bottom: 14px;
+  margin-bottom: 6px;
 }
 
 .endorsement-layout{
@@ -563,9 +597,9 @@ body::after {
 }
 
 .endorsement-subtitle{
-  margin: 0px 0 24px;
-    font-size: 1.02rem;
-  line-height: 1.4;
+  margin: 0 0 12px;
+  font-size: 1.02rem;
+  line-height: 1.34;
   color: rgba(27,27,27,0.72);
   text-align: center;
   max-width: 340px;
@@ -575,14 +609,14 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
-  position: relative;   /* <-- this is the key */
+  padding-top: 0px;
+  position: relative;
 }
 
 .endorsement-nav h1{
-  margin: 0 0 22px;
+  margin: 0 0 10px;
   font-size: 46px;
-  line-height: 1.10;
+  line-height: 1.05;
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
   text-align: center;
@@ -592,11 +626,11 @@ body::after {
 .endorsement-nav-group{
   width: 100%;
   max-width: 320px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .endorsement-nav-group:first-of-type{
-  margin-top: 5px;
+  margin-top: 0px;
 }
 
 .endorsement-nav-toggle{
@@ -688,8 +722,8 @@ body::after {
 }
 
 .endorsement-feature{
-  margin-top: 12px;
-  margin-bottom: 14px;
+  margin-top: -2px;
+  margin-bottom: 10px;
 }
 
 .endorsement-feature h2{
@@ -699,7 +733,24 @@ body::after {
   font-weight: 600;
 }
 
-.endorsement-feature-card{
+.endorsement-feature.panel,
+.endorsement-howto.panel{
+  padding: 10px 16px 12px;
+}
+
+.endorsement-feature-excerpt a,
+.shelf-feature-excerpt a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.endorsement-feature-excerpt a:hover,
+.shelf-feature-excerpt a:hover{
+  text-decoration: underline;
+}
+
+.endorsement-feature-card,
+.shelf-feature-card{
   background: rgba(252, 248, 242, 0.88);
   border: 1px solid rgba(224, 170, 116, 0.78);
   border-radius: 16px;
@@ -709,48 +760,56 @@ body::after {
     0 4px 10px rgba(0,0,0,0.22);
 }
 
-
-.endorsement-feature-card h3{
+.endorsement-feature-card h3,
+.shelf-feature-card h3{
   margin: 0 0 4px;
   font-size: 1.35rem;
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
 }
 
-.endorsement-feature-card h3 a{
+.endorsement-feature-card h3 a,
+.shelf-feature-card h3 a{
   text-decoration: none;
 }
 
-.endorsement-feature-card h3 a:hover{
+.endorsement-feature-card h3 a:hover,
+.shelf-feature-card h3 a:hover{
   text-decoration: underline;
 }
 
-.endorsement-feature-subtitle{
+.endorsement-feature-subtitle,
+.shelf-feature-subtitle{
   margin: 0 0 14px;
   font-size: 0.96rem;
   color: rgba(27,27,27,0.74);
 }
 
-.endorsement-feature-excerpt{
+.endorsement-feature-excerpt,
+.shelf-feature-excerpt{
   font-size: 1.02rem;
   line-height: 1.42;
 }
 
-.endorsement-feature-excerpt p{
+.endorsement-feature-excerpt p,
+.shelf-feature-excerpt p{
   margin: 0 0 0.3em;
 }
 
-.endorsement-feature-more{
+.endorsement-feature-more,
+.shelf-feature-more{
   margin-top: 3px;
   font-size: 0.95rem;
 }
 
-.endorsement-feature-more a{
+.endorsement-feature-more a,
+.shelf-feature-more a{
   text-decoration: none;
   color: rgba(27,27,27,0.78);
 }
 
-.endorsement-feature-more a:hover{
+.endorsement-feature-more a:hover,
+.shelf-feature-more a:hover{
   text-decoration: underline;
 }
 
@@ -776,11 +835,7 @@ body::after {
     gap: 22px;
   }
 
-  .endorsement-page{
-    padding: 8px 10px 18px;
-  }
-
-  .endorsement-nav h1{
+    .endorsement-nav h1{
     font-size: 34px;
   }
 }
