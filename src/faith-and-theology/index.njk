@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+title: Faith & Theology
+description: Writing on faith, theology, moral discernment, and the search for meaning
+---
+
+<div class="endorsement-page shelf-page">
+
+  <p class="essay-back"><a href="/writing/">← Back to The Library</a></p>
+
+  <div class="endorsement-layout shelf-layout">
+
+    <aside class="endorsement-nav shelf-nav">
+      <h1>Faith & Theology</h1>
+
+      <p class="endorsement-subtitle shelf-subtitle">
+        Writing that engages faith, theology, moral discernment, and the interpretive search for meaning.
+      </p>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/faith-and-theology/">Faith & Theology</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/institutions-and-leadership/">Institutions & Leadership</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/public-life-and-ethics/">Public Life & Ethics</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/spirituality-and-community/">Spirituality & Community</a>
+      </div>
+    </aside>
+
+    <main class="endorsement-main shelf-main">
+
+      <section class="panel browse-panel">
+        <div class="browse-intro">
+          <h2>About This Shelf</h2>
+          <p>
+            This shelf gathers writing concerned with faith, theology, moral reasoning,
+            and the questions of meaning that arise at the intersection of belief and life.
+          </p>
+        </div>
+
+        <div class="browse-list">
+          {% for item in collections.topicFaithAndTheology %}
+            <article class="browse-item">
+              <a class="browse-item-link" href="{{ item.url }}">
+                <h3 class="browse-item-title">{{ item.data.title }}</h3>
+
+                {% if item.data.subtitle %}
+                  <p class="browse-item-subtitle">{{ item.data.subtitle }}</p>
+                {% endif %}
+
+                {% if item.data.description %}
+                  <p class="browse-item-blurb">{{ item.data.description }}</p>
+                {% endif %}
+              </a>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+</div>

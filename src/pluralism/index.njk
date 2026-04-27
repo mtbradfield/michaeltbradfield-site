@@ -56,17 +56,17 @@ description: Essays and papers exploring pluralism, public institutions, and rel
     <main class="endorsement-main shelf-main">
 
       <section class="endorsement-feature shelf-feature panel">
-  <h2>Featured Works</h2>
+        <h2>Featured Works</h2>
 
-  {% for item in collections.featuredPluralism %}
-    <div class="endorsement-feature-excerpt shelf-feature-excerpt">
-      <p>
-        <strong><a href="{{ item.url }}">{{ item.data.title }}</a></strong><br>
-        {{ item.data.feature_blurb }}
-      </p>
-    </div>
-  {% endfor %}
-</section>
+        {% for item in collections.featuredPluralism %}
+          <div class="endorsement-feature-excerpt shelf-feature-excerpt">
+            <p>
+              <strong><a href="{{ item.url }}">{{ item.data.title }}</a></strong><br>
+              {{ item.data.feature_blurb }}
+            </p>
+          </div>
+        {% endfor %}
+      </section>
 
       <section class="endorsement-howto shelf-howto panel">
         <h2>About This Section</h2>

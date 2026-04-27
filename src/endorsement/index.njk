@@ -54,7 +54,7 @@ description: Essays, reflections, and documents related to endorsement ministry
   <div class="endorsement-nav-menu">
     <ul class="link-list">
       {% for item in collections.endorsementItems %}
-        {% if item.data.form == "white-paper" or item.data.form == "decision-paper" %}
+        {% if item.data.level == "foundational" %}
           <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
         {% endif %}
       {% endfor %}

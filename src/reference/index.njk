@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+title: Reference – Article Links
+permalink: /reference/
+---
+
+<div class="writing-page">
+
+  <h1>Article Reference</h1>
+
+  <p class="page-intro">
+    Quick reference list of all published items. Useful when adding Related Reading in the CMS.
+  </p>
+
+  <div class="panel">
+
+    <ul class="link-list">
+  {% for item in collections.all %}
+    {% if item.inputPath and item.inputPath.includes("src/library-items") and item.data.publication_status != "private" %}
+      <li>
+        <strong>{{ item.data.title }}</strong><br>
+        <a href="{{ item.url }}">{{ item.url }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+  </div>
+
+</div>

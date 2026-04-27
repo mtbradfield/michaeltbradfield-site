@@ -3,24 +3,100 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/admin");
 
   eleventyConfig.addCollection("essays", function(collectionApi) {
-    return collectionApi.getFilteredByTag("essay").reverse();
+  return collectionApi.getAll().filter(item => {
+    const formMatch = item.data.form === "essay";
+    const formsMatch = Array.isArray(item.data.forms) && item.data.forms.includes("essay");
+    return formMatch || formsMatch;
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA; // newest first
   });
+});
 
-  eleventyConfig.addCollection("reflections", function(collectionApi) {
-    return collectionApi.getFilteredByTag("reflection").reverse();
+    eleventyConfig.addCollection("workingPapers", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const formMatch = item.data.form === "working-paper";
+    const formsMatch = Array.isArray(item.data.forms) && item.data.forms.includes("working-paper");
+    return formMatch || formsMatch;
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA; // newest first
   });
-
-  eleventyConfig.addCollection("workingPapers", function(collectionApi) {
-    return collectionApi.getFilteredByTag("working-paper").reverse();
-  });
+});
 
   eleventyConfig.addCollection("notes", function(collectionApi) {
-    return collectionApi.getFilteredByTag("note").reverse();
+  return collectionApi.getAll().filter(item => {
+    const formMatch = item.data.form === "note";
+    const formsMatch = Array.isArray(item.data.forms) && item.data.forms.includes("note");
+    return formMatch || formsMatch;
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA; // newest first
   });
+});
 
-  eleventyConfig.addCollection("endorsementItems", function(collectionApi) {
-    return collectionApi.getFilteredByTag("project-endorsement-ministry").reverse();
+eleventyConfig.addCollection("topicPublicLifeEthics", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const topics = Array.isArray(item.data.topics) ? item.data.topics : [];
+    return topics.includes("public-life-ethics");
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA; // newest first
   });
+});
+
+eleventyConfig.addCollection("topicFaithAndTheology", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const topics = Array.isArray(item.data.topics) ? item.data.topics : [];
+    return topics.includes("faith-and-theology");
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA; // newest first
+  });
+});
+
+eleventyConfig.addCollection("topicInstitutionsAndLeadership", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const topics = Array.isArray(item.data.topics) ? item.data.topics : [];
+    return topics.includes("institutions-and-leadership");
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA; // newest first
+  });
+});
+
+eleventyConfig.addCollection("topicSpiritualityAndCommunity", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const topics = Array.isArray(item.data.topics) ? item.data.topics : [];
+    return topics.includes("spirituality-and-community");
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA; // newest first
+  });
+});
+
+eleventyConfig.addCollection("endorsementItems", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const projectMatch =
+      Array.isArray(item.data.projects) &&
+      item.data.projects.includes("endorsement");
+
+    const isPublic = item.data.publication_status !== "private";
+
+    return projectMatch && isPublic;
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  });
+});
 
   eleventyConfig.addCollection("featuredHome", function(collectionApi) {
     return collectionApi.getAll().filter(item => {
@@ -43,6 +119,52 @@ module.exports = function(eleventyConfig) {
     return item.data.featured === true && item.data.feature_section === "covenantal-economics";
   }).sort((a, b) => {
     return (a.data.feature_section_order || 999) - (b.data.feature_section_order || 999);
+  });
+});
+
+eleventyConfig.addCollection("transformingCommunity", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+
+    const isTC = Array.isArray(item.data.projects) &&
+      item.data.projects.includes("transforming-community");
+
+    const isPublic = item.data.publication_status !== "private";
+
+    return isTC && isPublic;
+
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  });
+});
+
+eleventyConfig.addCollection("voterIdentification", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+
+    const isVoterProject = Array.isArray(item.data.projects) &&
+      item.data.projects.includes("voter-identification");
+
+    const isPublic = item.data.publication_status !== "private";
+
+    return isVoterProject && isPublic;
+
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  });
+});
+
+  eleventyConfig.addCollection("reflections", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const formMatch = item.data.form === "reflection";
+    const formsMatch = Array.isArray(item.data.forms) && item.data.forms.includes("reflection");
+    return formMatch || formsMatch;
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA; // newest first
   });
 });
 

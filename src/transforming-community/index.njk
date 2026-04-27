@@ -1,0 +1,95 @@
+---
+layout: layouts/base.njk
+title: Transforming Community
+description: Resources for reflection, engagement, and facilitation in the shared work of forming community
+---
+
+<div class="endorsement-page shelf-page">
+
+  <p class="essay-back"><a href="/">← Back to Home</a></p>
+
+  <div class="endorsement-layout shelf-layout">
+
+    <aside class="endorsement-nav shelf-nav">
+      <h1>Transforming Community</h1>
+
+      <p class="endorsement-subtitle shelf-subtitle">
+        A working space for materials intended not only to be read, but to be used—resources
+        shaped by memory, experience, and the rhythms of life together, inviting participation
+        in the formation of community over time.
+      </p>
+
+      <div class="endorsement-nav-group shelf-nav-group">
+        <button class="endorsement-nav-toggle shelf-nav-toggle" type="button" aria-expanded="true">
+          Reflection
+        </button>
+        <div class="endorsement-nav-menu shelf-nav-menu">
+          <ul class="link-list">
+            <li><span>Additional work forthcoming</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="endorsement-nav-group shelf-nav-group">
+        <button class="endorsement-nav-toggle shelf-nav-toggle" type="button" aria-expanded="true">
+          Engagement
+        </button>
+        <div class="endorsement-nav-menu shelf-nav-menu">
+          <ul class="link-list">
+            <li><span>Additional work forthcoming</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="endorsement-nav-group shelf-nav-group">
+        <button class="endorsement-nav-toggle shelf-nav-toggle" type="button" aria-expanded="true">
+          Facilitation
+        </button>
+        <div class="endorsement-nav-menu shelf-nav-menu">
+          <ul class="link-list">
+            {% for item in collections.transformingCommunity %}
+              <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="endorsement-main shelf-main">
+
+      <section class="endorsement-feature shelf-feature panel">
+        <h2>Featured Works</h2>
+
+        {% for item in collections.transformingCommunity %}
+          {% if loop.index0 < 3 %}
+            <div class="endorsement-feature-excerpt shelf-feature-excerpt">
+              <p>
+                <strong><a href="{{ item.url }}">{{ item.data.title }}</a></strong><br>
+                {{ item.data.description or item.data.subtitle or "" }}
+              </p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </section>
+
+      <section class="endorsement-howto shelf-howto panel">
+        <h2>About This Section</h2>
+        <p>
+          This shelf gathers materials intended to support the work of remembering, reconnecting,
+          and forming community. Some pieces are reflective in tone; others are designed for shared
+          use in study, conversation, worship, or group facilitation.
+        </p>
+        <p>
+          The aim is not merely to collect writings, but to offer resources that can be taken up
+          in settings where memory has frayed, connection has weakened, or the work of communal
+          life needs renewed attention. In that sense, this shelf is less a reading room than a
+          working space for reflection, engagement, and facilitation.
+        </p>
+      </section>
+
+    </main>
+
+  </div>
+</div>
+
+{% include "partials/shelf-script.njk" %}

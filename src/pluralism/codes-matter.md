@@ -1,5 +1,5 @@
 ---
-layout: layouts/document-record.njk
+layout: layouts/essay.njk
 title: Codes Matter
 subtitle: Clarity, Representation, and Consequences
 description: A policy analysis examining proposed changes to religious affiliation codes and their implications for clarity, representation, and institutional understanding.

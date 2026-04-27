@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+title: Institutions & Leadership
+description: Writing on structure, authority, legitimacy, culture, and the practice of leadership
+---
+
+<div class="endorsement-page shelf-page">
+
+  <p class="essay-back"><a href="/writing/">← Back to The Library</a></p>
+
+  <div class="endorsement-layout shelf-layout">
+
+    <aside class="endorsement-nav shelf-nav">
+      <h1>Institutions & Leadership</h1>
+
+      <p class="endorsement-subtitle shelf-subtitle">
+        Writing that considers institutions, authority, legitimacy, organizational culture, and the burdens of leadership.
+      </p>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/faith-and-theology/">Faith & Theology</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/institutions-and-leadership/">Institutions & Leadership</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/public-life-and-ethics/">Public Life & Ethics</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/spirituality-and-community/">Spirituality & Community</a>
+      </div>
+    </aside>
+
+    <main class="endorsement-main shelf-main">
+
+      <section class="panel browse-panel">
+        <div class="browse-intro">
+          <h2>About This Shelf</h2>
+          <p>
+            This shelf gathers writing on institutional life, leadership, structure, legitimacy,
+            and the ways authority is exercised, perceived, and sustained.
+          </p>
+        </div>
+
+        <div class="browse-list">
+          {% for item in collections.topicInstitutionsAndLeadership %}
+            <article class="browse-item">
+              <a class="browse-item-link" href="{{ item.url }}">
+                <h3 class="browse-item-title">{{ item.data.title }}</h3>
+
+                {% if item.data.subtitle %}
+                  <p class="browse-item-subtitle">{{ item.data.subtitle }}</p>
+                {% endif %}
+
+                {% if item.data.description %}
+                  <p class="browse-item-blurb">{{ item.data.description }}</p>
+                {% endif %}
+              </a>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+</div>

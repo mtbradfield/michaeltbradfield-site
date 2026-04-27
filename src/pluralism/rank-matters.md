@@ -1,5 +1,5 @@
 ---
-layout: layouts/document-record.njk
+layout: layouts/essay.njk
 title: Rank Matters
 subtitle: Rank, Representation, and Constitutional Balance in the Military Chaplaincy
 description: A policy paper prepared for Congressional review examining proposed changes to chaplain insignia and religious classification systems.

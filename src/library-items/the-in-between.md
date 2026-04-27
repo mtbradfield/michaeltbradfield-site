@@ -1,24 +1,27 @@
 ---
-layout: layouts/document-record.njk
-title: The In-Between
-subtitle: A reflection for Holy Saturday
+layout: layouts/essay.njk
+title: The "In-Between"
+subtitle: From Good Friday to Easter Sunday
+epigraph: Holy Saturday - between promise and fulfillment.
 description: A reflection on the often-overlooked space between Good Friday and
   Easter Sunday, and what it reveals about how we live between promise and
   fulfillment.
+permalink_base: /reflections/
+permalink_slug: rhw-in-between
 permalink: /reflections/the-in-between/
 form: reflection
 level: working
 forms:
   - reflection
 topics:
-  - faith-theology
-projects:
-  - sacred-seasons
+  - faith-and-theology
+projects: null
 publication_status: published
 publication_platforms:
   - substack
 featured: false
 feature_home: false
+document_file: /assets/uploads/the-in-between-holy-saturday-reflection.pdf
 author: Michael T. Bradfield
 first_written: April 2026
 tags:

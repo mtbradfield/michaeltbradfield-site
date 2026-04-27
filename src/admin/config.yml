@@ -1,3 +1,5 @@
+local_backend: true
+
 backend:
   name: git-gateway
   branch: main
@@ -15,11 +17,42 @@ collections:
     format: "frontmatter"
 
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/document-record.njk" }
+      - label: "Layout"
+        name: "layout"
+        widget: "select"
+        required: true
+        default: "layouts/essay.njk"
+        options:
+          - { label: "Readable Page (Essay / Reflection)", value: "layouts/essay.njk" }
+          - { label: "Document Record (PDF / Formal Document)", value: "layouts/document-record.njk" }
 
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Epigraph", name: "epigraph", widget: "text", required: false }
+      - { label: "Epigraph Attribution", name: "epigraph_attribution", widget: "string", required: false }
       - { label: "Description", name: "description", widget: "text" }
+
+      - label: "Permalink Base"
+        name: "permalink_base"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Essays", value: "/essays/" }
+          - { label: "Reflections", value: "/reflections/" }
+          - { label: "Working Papers", value: "/working-papers/" }
+          - { label: "Notes", value: "/notes/" }
+          - { label: "Endorsement", value: "/endorsement/" }
+          - { label: "Pluralism", value: "/pluralism/" }
+          - { label: "Covenantal Economics", value: "/covenantal-economics/" }
+          - { label: "Transforming Community", value: "/transforming-community/" }
+          - { label: "Voter Identification", value: "/voter-identification/" }
+
+      - label: "Permalink Slug"
+        name: "permalink_slug"
+        widget: "string"
+        required: false
+        hint: "Short lowercase slug, e.g. rank-matters or nativity-illustrated-stories/story-one"
+
       - { label: "Permalink", name: "permalink", widget: "string" }
 
       - { label: "Back Link", name: "back_link", widget: "string", required: false }
@@ -37,6 +70,7 @@ collections:
       - label: "Level"
         name: "level"
         widget: "select"
+        required: false
         options:
           - { label: "Working", value: "working" }
           - { label: "Foundational", value: "foundational" }
@@ -45,6 +79,7 @@ collections:
         name: "forms"
         widget: "select"
         multiple: true
+        required: false
         options:
           - { label: "Essay", value: "essay" }
           - { label: "Reflection", value: "reflection" }
@@ -55,30 +90,64 @@ collections:
         name: "topics"
         widget: "select"
         multiple: true
+        required: false
         options:
-          - { label: "Faith & Theology", value: "faith-theology" }
-          - { label: "Institutions & Leadership", value: "institutions-leadership" }
-          - { label: "Endorsement Ministry", value: "endorsement-ministry" }
-          - { label: "Public Life & Ethics", value: "public-life-ethics" }
-          - { label: "Personal Reflections", value: "personal-reflections" }
+          - { label: "Faith & Theology", value: "faith-and-theology" }
+          - { label: "Institutions & Leadership", value: "institutions-and-leadership" }
+          - { label: "Public Life & Ethics", value: "public-life-and-ethics" }
+          - { label: "Spirituality & Community", value: "spirituality-and-community" }
 
       - label: "Project Shelf Membership"
         name: "projects"
         widget: "select"
         multiple: true
+        required: false
         options:
           - { label: "Endorsement", value: "endorsement" }
           - { label: "Pluralism", value: "pluralism" }
           - { label: "Covenantal Economics", value: "covenantal-economics" }
+          - { label: "Transforming Community", value: "transforming-community" }
           - { label: "Voter Identification", value: "voter-identification" }
-          - { label: "Sacred Seasons", value: "sacred-seasons" }
+
+      - label: "Transforming Community Lane"
+        name: "tc_lane"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Reflection", value: "reflection" }
+          - { label: "Engagement", value: "engagement" }
+          - { label: "Facilitation", value: "facilitation" }
+
+      - label: "Series ID"
+        name: "series"
+        widget: "string"
+        required: false
+        hint: "Short slug, e.g. nativity-illustrated-stories"
+
+      - label: "Series Title"
+        name: "series_title"
+        widget: "string"
+        required: false
+
+      - label: "Series Order"
+        name: "series_order"
+        widget: "number"
+        required: false
+        value_type: "int"
+
+      - label: "Series Description"
+        name: "series_description"
+        widget: "text"
+        required: false
 
       - label: "Publication Status"
         name: "publication_status"
         widget: "select"
+        required: true
+        default: "public"
         options:
+          - { label: "Public", value: "public" }
           - { label: "Private", value: "private" }
-          - { label: "Published", value: "published" }
 
       - label: "Publication Platforms"
         name: "publication_platforms"
@@ -103,17 +172,16 @@ collections:
           - { label: "Endorsement", value: "endorsement" }
           - { label: "Pluralism", value: "pluralism" }
           - { label: "Covenantal Economics", value: "covenantal-economics" }
+          - { label: "Transforming Community", value: "transforming-community" }
           - { label: "Voter Identification", value: "voter-identification" }
-          - { label: "Sacred Seasons", value: "sacred-seasons" }
           - { label: "Essays", value: "essay" }
           - { label: "Reflections", value: "reflection" }
           - { label: "Working Papers", value: "working-paper" }
           - { label: "Notes", value: "note" }
-          - { label: "Faith & Theology", value: "faith-theology" }
-          - { label: "Institutions & Leadership", value: "institutions-leadership" }
-          - { label: "Endorsement Ministry", value: "endorsement-ministry" }
-          - { label: "Public Life & Ethics", value: "public-life-ethics" }
-          - { label: "Personal Reflections", value: "personal-reflections" }
+          - { label: "Faith & Theology", value: "faith-and-theology" }
+          - { label: "Institutions & Leadership", value: "institutions-and-leadership" }
+          - { label: "Public Life & Ethics", value: "public-life-and-ethics" }
+          - { label: "Spirituality & Community", value: "spirituality-and-community" }
 
       - { label: "Feature Section Order", name: "feature_section_order", widget: "number", required: false, value_type: "int" }
       - { label: "Feature Blurb", name: "feature_blurb", widget: "text", required: false }
@@ -154,6 +222,7 @@ collections:
         name: "tags"
         widget: "select"
         multiple: true
+        required: false
         options:
           - { label: "Essay", value: "essay" }
           - { label: "Reflection", value: "reflection" }

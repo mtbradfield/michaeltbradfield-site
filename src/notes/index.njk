@@ -1,0 +1,72 @@
+---
+layout: layouts/base.njk
+title: Notes
+description: Short-form writing, observations, and fragments in development
+---
+
+<div class="endorsement-page shelf-page">
+
+  <p class="essay-back"><a href="/writing/">← Back to The Library</a></p>
+
+  <div class="endorsement-layout shelf-layout">
+
+    <aside class="endorsement-nav shelf-nav">
+      <h1>Notes</h1>
+
+      <p class="endorsement-subtitle shelf-subtitle">
+        Notes, fragments, and short-form writing that capture ideas in motion—less finished,
+        but often closer to their point of origin.
+      </p>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/reflections/">Reflections</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/essays/">Essays</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/working-papers/">Working Papers</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/notes/">Notes</a>
+      </div>
+    </aside>
+
+    <main class="endorsement-main shelf-main">
+
+      <section class="panel browse-panel">
+        <div class="browse-intro">
+          <h2>About This Shelf</h2>
+          <p>
+            This shelf gathers shorter and more provisional writing: notes, observations,
+            and fragments that may later develop into essays or remain as they are.
+          </p>
+        </div>
+
+        <div class="browse-list">
+          {% for item in collections.notes %}
+            <article class="browse-item">
+              <a class="browse-item-link" href="{{ item.url }}">
+                <h3 class="browse-item-title">{{ item.data.title }}</h3>
+
+                {% if item.data.subtitle %}
+                  <p class="browse-item-subtitle">{{ item.data.subtitle }}</p>
+                {% endif %}
+
+                {% if item.data.description %}
+                  <p class="browse-item-blurb">{{ item.data.description }}</p>
+                {% endif %}
+              </a>
+            </article>
+          {% endfor %}
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+</div>

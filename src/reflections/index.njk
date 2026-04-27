@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+title: Reflections
+description: Reflective writing on faith, memory, meaning, and the shape of life lived in the in-between
+---
+
+<div class="endorsement-page shelf-page">
+
+  <p class="essay-back"><a href="/writing/">← Back to The Library</a></p>
+
+  <div class="endorsement-layout shelf-layout">
+
+    <aside class="endorsement-nav shelf-nav">
+      <h1>Reflections</h1>
+
+      <p class="endorsement-subtitle shelf-subtitle">
+        Reflections that linger with memory, faith, meaning, and the quieter movements of life.
+      </p>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/reflections/">Reflections</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/essays/">Essays</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/working-papers/">Working Papers</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/notes/">Notes</a>
+      </div>
+    </aside>
+
+    <main class="endorsement-main shelf-main">
+
+      <section class="panel browse-panel">
+        <div class="browse-intro">
+          <h2>About This Shelf</h2>
+          <p>
+            This shelf gathers reflective writing that is less concerned with argument than with attention:
+            the kind of writing that lingers with experience, memory, faith, and the quiet discovery of meaning.
+          </p>
+        </div>
+
+        <div class="browse-list">
+  {% for item in collections.reflections %}
+    <article class="browse-item">
+  <a class="browse-item-link" href="{{ item.url }}">
+    <h3 class="browse-item-title">{{ item.data.title }}</h3>
+
+    {% if item.data.subtitle %}
+      <p class="browse-item-subtitle">{{ item.data.subtitle }}</p>
+    {% endif %}
+
+    {% if item.data.description %}
+      <p class="browse-item-blurb">{{ item.data.description }}</p>
+    {% endif %}
+  </a>
+</article>
+  {% endfor %}
+</div>
+      </section>
+
+    </main>
+
+  </div>
+</div>
