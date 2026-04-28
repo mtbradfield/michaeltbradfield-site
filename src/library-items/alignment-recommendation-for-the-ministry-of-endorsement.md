@@ -31,10 +31,11 @@ document_file: /assets/uploads/alignment-recommendation-decision-focus-version-5
 document_type: pdf
 author: Michael T. Bradfield
 related_reading:
-  - title: Alignment Recommendation for the Ministry of Endorsement
+  - title: "Executive Summary: Alignment Recommendation for the Ministry of
+      Endorsement"
     url: /endorsement/executive-summary-endorsement-alignment-discernment-report/
     type: project
-  - title: Alignment Recommendation for the Ministry of Endorsement
+  - title: "Executive Brief: Alignment Recommendation for the Ministry of Endorsement"
     url: /endorsement/executive-brief-endorsement-alignment-discernment-report/
     type: project
 tags:
