@@ -22,7 +22,7 @@ projects:
   - endorsement
 series: UMEA Alignment Series
 series_title: UMEA Alignment Series
-series_order: 2
+series_order: 3
 publication_status: public
 featured: false
 feature_home: false
