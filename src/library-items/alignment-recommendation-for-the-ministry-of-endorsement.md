@@ -32,10 +32,10 @@ document_type: pdf
 author: Michael T. Bradfield
 related_reading:
   - title: Alignment Recommendation for the Ministry of Endorsement
-    url: /endorsement/executive-summary-endorsement-alignment-discernment-report
+    url: /endorsement/executive-summary-endorsement-alignment-discernment-report/
     type: project
   - title: Alignment Recommendation for the Ministry of Endorsement
-    url: /endorsement/executive-brief-endorsement-alignment-discernment-report
+    url: /endorsement/executive-brief-endorsement-alignment-discernment-report/
     type: project
 tags:
   - working-paper
