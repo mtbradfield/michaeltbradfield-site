@@ -12,7 +12,7 @@ description: "This paper invites readers into a conversation about an effective
   as they reach decision points in advance of General Conference 2028. "
 permalink_base: /endorsement/
 permalink_slug: endorsement-alignment-discernment-report
-permalink: /endorsement/endorsement-alignment-discernment-report
+permalink: /endorsement/endorsement-alignment-discernment-report/
 form: working-paper
 level: foundational
 forms:
