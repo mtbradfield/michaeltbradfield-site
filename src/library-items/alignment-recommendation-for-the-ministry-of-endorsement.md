@@ -23,7 +23,7 @@ projects:
   - endorsement
 series: UMEA Alignment Series
 series_title: UMEA Alignment Series
-series_order: 0
+series_order: 1
 publication_status: public
 featured: false
 feature_home: false
@@ -37,4 +37,6 @@ related_reading:
   - title: Alignment Recommendation for the Ministry of Endorsement
     url: /endorsement/executive-brief-endorsement-alignment-discernment-report
     type: project
+tags:
+  - working-paper
 ---
