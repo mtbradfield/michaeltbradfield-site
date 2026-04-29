@@ -19,7 +19,7 @@ topics:
   - institutions-and-leadership
 projects:
   - endorsement
-series: Endorsement Rationale
+series_slug: endorsement-rationale
 series_title: Endorsement Rationale
 series_order: 2
 publication_status: public
@@ -30,6 +30,7 @@ document_type: pdf
 author: Michael T. Bradfield
 first_written: November 2025
 revised: April 2026
+series: Endorsement Rationale
 related_reading:
   - title: The United Methodist Endorsing Agency in an Emerging Regional Structure -
       White Paper
