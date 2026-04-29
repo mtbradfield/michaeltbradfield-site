@@ -20,15 +20,16 @@ topics:
   - institutions-and-leadership
 projects:
   - endorsement
-series: UMEA Alignment Series
-series_title: UMEA Alignment Series
+series_slug: umea-alignment
+series_title: UMEA Alignment
 series_order: 2
 publication_status: public
 featured: false
 feature_home: false
 document_file: /assets/uploads/alignment-recommendation-executive-summary-for-decision-focus-version-5-20260424.pdf
-document_type: pdf
 author: Michael T. Bradfield
+series: UMEA Alignment Series
+document_type: pdf
 related_reading:
   - url: /endorsement/endorsement-alignment-discernment-report/
     title: Alignment Recommendation for the Ministry of Endorsement
