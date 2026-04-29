@@ -19,7 +19,7 @@ topics:
   - institutions-and-leadership
 projects:
   - endorsement
-series: Endorsement Rationale
+series_slug: endorsement-rationale
 series_title: Endorsement Rationale
 series_order: 3
 publication_status: public
@@ -27,6 +27,7 @@ featured: false
 feature_home: false
 document_file: /assets/uploads/executive-brief-umea-rationale-and-white-paper-v8-20260418.pdf
 author: Michael T. Bradfield
+series: Endorsement Rationale
 related_reading:
   - title: "White Paper: The United Methodist Endorsing Agency in an Emerging
       Regional Structure"
