@@ -21,6 +21,7 @@ projects:
 series_slug: endorsement-rationale
 series_title: Endorsement Rationale
 series_order: 1
+series_type: modular
 publication_status: public
 featured: false
 feature_home: false

@@ -23,6 +23,7 @@ projects:
 series_slug: umea-alignment
 series_title: UMEA Alignment
 series_order: 2
+series_type: modular
 publication_status: public
 featured: false
 feature_home: false

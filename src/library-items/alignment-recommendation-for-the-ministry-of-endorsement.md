@@ -21,9 +21,10 @@ topics:
   - institutions-and-leadership
 projects:
   - endorsement
-series_slug: alignment-series
+series_slug: umea-alignment
 series_title: UMEA Alignment
 series_order: 1
+series_type: modular
 publication_status: public
 featured: false
 feature_home: false

@@ -118,11 +118,11 @@ collections:
           - { label: "Engagement", value: "engagement" }
           - { label: "Facilitation", value: "facilitation" }
 
-      - label: "Series ID"
-        name: "series"
+      - label: "Series Slug"
+        name: "series_slug"
         widget: "string"
         required: false
-        hint: "Short slug, e.g. nativity-illustrated-stories"
+        hint: "Short lowercase slug, e.g. endorsement-rationale"
 
       - label: "Series Title"
         name: "series_title"
@@ -139,6 +139,15 @@ collections:
         name: "series_description"
         widget: "text"
         required: false
+
+      - label: "Series Type"
+        name: "series_type"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Sequential (read in order)", value: "sequential" }
+          - { label: "Modular (read in any order)", value: "modular" }
+        hint: "Use 'Sequential' for essays meant to be read in order. Use 'Modular' for document sets where readers may enter at any point."  
 
       - label: "Publication Status"
         name: "publication_status"

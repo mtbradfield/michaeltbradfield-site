@@ -1,0 +1,54 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.seriesList
+  size: 1
+  alias: series
+permalink: "/series/{{ series.slug }}/"
+eleventyComputed:
+  title: "{{ series.title }} Series"
+---
+
+{% set slug = series.slug %}
+{% set title = series.title %}
+{% set description = series.description %}
+
+<main class="container page-surface page-surface--essay">
+  <article class="essay-page">
+
+    <p class="essay-back">
+  <a href="/"
+     onclick="if (document.referrer && document.referrer.includes(window.location.origin)) { event.preventDefault(); window.history.back(); return false; }">
+    ← Back
+  </a>
+</p>
+
+    <header class="piece-header">
+      <h1 class="piece-title">{{ title }} Series</h1>
+
+      {% if description %}
+        <p class="piece-subtitle">{{ description }}</p>
+      {% endif %}
+    </header>
+
+    <section class="essay-related">
+  <h2>Series Contents</h2>
+
+  <ul class="link-list">
+    {% for item in collections.all | sort(attribute="data.series_order") %}
+      {% if item.data.series_slug == slug %}
+        <li>
+          <a href="{{ item.url }}">
+            {% if item.data.series_order %}
+              Part {{ item.data.series_order }}:
+            {% endif %}
+            {{ item.data.title }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>
+
+  </article>
+</main>

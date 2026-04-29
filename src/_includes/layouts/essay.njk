@@ -84,15 +84,29 @@
         {% endif %}
       </header>
 
-        {% if series_title %}
-          <p class="piece-series-note">
-            {% if series_order %}
-              Part {{ series_order }} of the {{ series_title }}
-            {% else %}
-              Part of the {{ series_title }}
-            {% endif %}
-          </p>
-        {% endif %}
+{% if series_title and series_slug %}
+  <p class="piece-series-note">
+    {% if series_order and series_order > 1 %}
+      <a href="/series/{{ series_slug }}/">
+        Part {{ series_order }} of the {{ series_title }} Series
+      </a>
+    {% elif series_order %}
+      Part {{ series_order }} of the {{ series_title }} Series
+    {% else %}
+      <a href="/series/{{ series_slug }}/">
+        Part of the {{ series_title }} Series
+      </a>
+    {% endif %}
+  </p>
+{% elif series_title %}
+  <p class="piece-series-note">
+    {% if series_order %}
+      Part {{ series_order }} of the {{ series_title }} Series
+    {% else %}
+      Part of the {{ series_title }} Series
+    {% endif %}
+  </p>
+{% endif %}
 
       <div class="piece-body">
         {{ content | safe }}
@@ -120,6 +134,36 @@
           <p><a href="{{ document_file }}" download>Download</a></p>
         </div>
       {% endif %}
+
+      {% if series_type == "sequential" and series_slug and series_order %}
+
+  {% set currentOrder = series_order %}
+
+  {% set prevItem = null %}
+  {% set nextItem = null %}
+
+  {% for item in collections.all %}
+    {% if item.data.series_slug == series_slug and item.data.series_type == "sequential" %}
+      {% if item.data.series_order == currentOrder - 1 %}
+        {% set prevItem = item %}
+      {% endif %}
+      {% if item.data.series_order == currentOrder + 1 %}
+        {% set nextItem = item %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  <nav class="series-nav">
+    {% if prevItem %}
+      <a class="series-prev" href="{{ prevItem.url }}">← Part {{ prevItem.data.series_order }}</a>
+    {% endif %}
+
+    {% if nextItem %}
+      <a class="series-next" href="{{ nextItem.url }}">Part {{ nextItem.data.series_order }} →</a>
+    {% endif %}
+  </nav>
+
+{% endif %}
 
       {% if related_reading and related_reading.length %}
         <section class="essay-related">

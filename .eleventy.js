@@ -2,6 +2,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/admin");
 
+  eleventyConfig.addGlobalData("eleventyComputed", {
+    shelf_sort_title: data => {
+      return data.series_title || data.title || "";
+    }
+  });
+
   eleventyConfig.addCollection("essays", function(collectionApi) {
   return collectionApi.getAll().filter(item => {
     const formMatch = item.data.form === "essay";
@@ -96,6 +102,30 @@ eleventyConfig.addCollection("endorsementItems", function(collectionApi) {
     const dateB = new Date(b.data.first_written || "1900-01-01");
     return dateB - dateA;
   });
+});
+
+eleventyConfig.addCollection("seriesList", function(collectionApi) {
+  const seriesMap = new Map();
+
+  collectionApi.getAll().forEach(item => {
+    if (
+      item.data.series_slug &&
+      item.data.series_title &&
+      item.data.publication_status !== "private"
+    ) {
+      const slug = item.data.series_slug;
+
+      if (!seriesMap.has(slug)) {
+        seriesMap.set(slug, {
+          slug: slug,
+          title: item.data.series_title,
+          description: item.data.series_description || ""
+        });
+      }
+    }
+  });
+
+  return Array.from(seriesMap.values());
 });
 
   eleventyConfig.addCollection("featuredHome", function(collectionApi) {

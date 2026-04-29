@@ -45,22 +45,58 @@ description: Writing on faith, theology, moral discernment, and the search for m
           </p>
         </div>
 
-        <div class="browse-list">
-          {% for item in collections.topicFaithAndTheology %}
-            <article class="browse-item">
-              <a class="browse-item-link" href="{{ item.url }}">
-                <h3 class="browse-item-title">{{ item.data.title }}</h3>
+        <div class="browse-list browse-list--series">
 
-                {% if item.data.subtitle %}
-                  <p class="browse-item-subtitle">{{ item.data.subtitle }}</p>
-                {% endif %}
+          {% set renderedSeries = "" %}
 
-                {% if item.data.description %}
-                  <p class="browse-item-blurb">{{ item.data.description }}</p>
-                {% endif %}
-              </a>
-            </article>
+          {% for item in collections.topicFaithAndTheology | sort(attribute="data.shelf_sort_title") %}
+
+            {% if item.data.series_slug %}
+
+              {% if renderedSeries.indexOf(item.data.series_slug) == -1 %}
+
+                <article class="browse-series">
+                  <h3 class="browse-series-title">
+                    <a href="/series/{{ item.data.series_slug }}/">
+                      {{ item.data.series_title }} Series
+                    </a>
+                  </h3>
+
+                  {% for seriesItem in collections.topicFaithAndTheology | sort(attribute="data.series_order") %}
+                    {% if seriesItem.data.series_slug == item.data.series_slug %}
+                      <div class="browse-series-item">
+                        <a href="{{ seriesItem.url }}">
+                          Part {{ seriesItem.data.series_order }}: {{ seriesItem.data.title }}
+                        </a>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </article>
+
+                {% set renderedSeries = renderedSeries + item.data.series_slug + "," %}
+
+              {% endif %}
+
+            {% else %}
+
+              <article class="browse-item">
+                <a class="browse-item-link" href="{{ item.url }}">
+                  <h3 class="browse-item-title">{{ item.data.title }}</h3>
+
+                  {% if item.data.subtitle %}
+                    <p class="browse-item-subtitle">{{ item.data.subtitle }}</p>
+                  {% endif %}
+
+                  {% if item.data.description %}
+                    <p class="browse-item-blurb">{{ item.data.description }}</p>
+                  {% endif %}
+                </a>
+              </article>
+
+            {% endif %}
+
           {% endfor %}
+
         </div>
       </section>
 

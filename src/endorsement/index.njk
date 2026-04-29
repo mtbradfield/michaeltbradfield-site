@@ -14,58 +14,76 @@ description: Essays, reflections, and documents related to endorsement ministry
       <h1>The Ministry of<br>Endorsement</h1>
 
       <p class="endorsement-subtitle">
-  Exploring endorsement ministry—its role, its structure, and its place within The United Methodist Church
-</p>
-
-<div class="endorsement-nav-group">
-  <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
-    Framing Reflections
-  </button>
-  <div class="endorsement-nav-menu">
-    <ul class="link-list">
-      {% for item in collections.endorsementItems %}
-        {% if item.data.form == "reflection" %}
-          <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-</div>
+        Exploring endorsement ministry—its role, its structure, and its place within The United Methodist Church
+      </p>
 
       <div class="endorsement-nav-group">
-  <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
-    Interpretive Essays
-  </button>
-  <div class="endorsement-nav-menu">
-    <ul class="link-list">
-      {% for item in collections.endorsementItems %}
-        {% if item.data.form == "essay" %}
-          <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-</div>
+        <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
+          Framing Reflections
+        </button>
+        <div class="endorsement-nav-menu">
+          <ul class="link-list">
+            {% for item in collections.endorsementItems %}
+              {% if item.data.form == "reflection" %}
+                <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
 
-<div class="endorsement-nav-group">
-  <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
-    Foundational Documents
-  </button>
-  <div class="endorsement-nav-menu">
-    <ul class="link-list">
-      {% for item in collections.endorsementItems %}
-        {% if item.data.level == "foundational" %}
-          <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-</div>
+      <div class="endorsement-nav-group">
+        <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
+          Interpretive Essays
+        </button>
+        <div class="endorsement-nav-menu">
+          <ul class="link-list">
+            {% for item in collections.endorsementItems %}
+              {% if item.data.form == "essay" %}
+                <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="endorsement-nav-group">
+        <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
+          Foundational Documents
+        </button>
+        <div class="endorsement-nav-menu">
+          <ul class="link-list series-link-list">
+
+            {% for item in collections.endorsementItems | sort(attribute="data.series_title") %}
+              {% if item.data.level == "foundational" and item.data.series_slug and item.data.series_order == 1 %}
+
+                <li class="series-group-title">
+                  <a href="/series/{{ item.data.series_slug }}/">{{ item.data.series_title }} Series</a>
+                </li>
+
+                {% for seriesItem in collections.endorsementItems | sort(attribute="data.series_order") %}
+                  {% if seriesItem.data.level == "foundational" and seriesItem.data.series_slug == item.data.series_slug %}
+                    <li class="series-group-item">
+                      <a href="{{ seriesItem.url }}">
+                        Part {{ seriesItem.data.series_order }}: {{ seriesItem.data.title }}
+                      </a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+
+              {% elif item.data.level == "foundational" and not item.data.series_slug %}
+                <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+          </ul>
+        </div>
+      </div>
     </aside>
 
     <main class="endorsement-main">
 
-      <section class="endorsement-feature">    
+      <section class="endorsement-feature">
         {% for item in collections.endorsementItems %}
           {% if item.data.title == "The Hinge" %}
             <article class="endorsement-feature-card">
@@ -81,13 +99,13 @@ description: Essays, reflections, and documents related to endorsement ministry
                 </div>
               {% endif %}
 
-                <p class="endorsement-feature-more">
-                  <a href="{{ item.url }}">Continue reading →</a>
-                </p>
-               </article>
-              {% endif %}
-            {% endfor %}
-          </section>
+              <p class="endorsement-feature-more">
+                <a href="{{ item.url }}">Continue reading →</a>
+              </p>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </section>
 
       <section class="endorsement-howto panel">
         <h2>How to Use This Section</h2>
