@@ -11,61 +11,8 @@
   <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="site-title" href="/">Michael T. Bradfield</a>
 
- <nav class="site-nav">
-
-  <div class="site-nav-item site-nav-item--dropdown">
-    <button class="site-nav-toggle" type="button" aria-expanded="false">
-      Writing Forms
-    </button>
-    <div class="site-nav-menu">
-      <ul class="link-list">
-        <li><a href="/reflections/">Reflections</a></li>
-        <li><a href="/essays/">Essays</a></li>
-        <li><a href="/working-papers/">Working Papers</a></li>
-        <li><a href="/notes/">Notes</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="site-nav-item site-nav-item--dropdown">
-    <button class="site-nav-toggle" type="button" aria-expanded="false">
-      Topics
-    </button>
-    <div class="site-nav-menu">
-      <ul class="link-list">
-        <li><a href="/faith-and-theology/">Faith & Theology</a></li>
-        <li><a href="/institutions-and-leadership/">Institutions & Leadership</a></li>
-        <li><a href="/public-life-and-ethics/">Public Life & Ethics</a></li>
-        <li><a href="/spirituality-and-community/">Spirituality & Community</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="site-nav-item site-nav-item--dropdown">
-    <button class="site-nav-toggle" type="button" aria-expanded="false">
-      Projects
-    </button>
-    <div class="site-nav-menu">
-      <ul class="link-list">
-        <li><a href="/endorsement/">Endorsement</a></li>
-        <li><a href="/pluralism/">Pluralism</a></li>
-        <li><a href="/covenantal-economics/">Covenantal Economics</a></li>
-        <!-- <li><a href="/voter-identification/">Voter Identification</a></li> -->
-        <li><a href="/transforming-community/">Transforming Community</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <a href="/writing/">Library</a>
-  <a href="/about/">About</a>
-  <a href="/contact/">Contact</a>
-</nav>
-    </div>
-  </header>
+{% include "partials/site-header.njk" %}
 
   <main class="container page-surface">
     {{ content | safe }}

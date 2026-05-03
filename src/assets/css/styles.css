@@ -54,6 +54,7 @@ a { color: inherit; }
   color: #f3eadc;
 }
 
+
 .site-nav{
   margin-left: auto;
   display: flex;
@@ -750,6 +751,87 @@ body::after {
   font-size: 0.95rem;
 }
 
+.essay-top-controls{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.essay-top-controls .essay-back{
+  margin-bottom: 0;
+}
+
+.contrast-toggle{
+  background: rgba(252,248,242,0.96);
+  border: 1px solid rgba(84,64,42,0.55);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 0.92rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  cursor: pointer;
+  color: rgba(27,27,27,0.9);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.contrast-toggle:hover{
+  background: #fff;
+}
+
+/* TRUE HIGH-CONTRAST READING MODE */
+
+.high-contrast body{
+  background: #ffffff;
+}
+
+/* Kill the map texture completely */
+.high-contrast body::after{
+  display: none !important;
+}
+
+/* Reading surface */
+.high-contrast .page-surface--essay{
+  background: #ffffff;
+  border: none;
+  box-shadow: none;
+}
+
+/* Article container */
+.high-contrast .essay-page{
+  background: #ffffff;
+  color: #111;
+}
+
+/* Body text */
+.high-contrast .piece-body p,
+.high-contrast .piece-body li{
+  color: #111;
+  line-height: 1.75;   /* slightly more breathing room */
+}
+
+/* Headings */
+.high-contrast .piece-title,
+.high-contrast .piece-subtitle{
+  color: #000;
+}
+
+/* Epigraph */
+.high-contrast .epigraph{
+  color: #333;
+}
+
+/* Links */
+.high-contrast a{
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Optional: soften UI elements */
+.high-contrast .contrast-toggle{
+  background: #f4f4f4;
+  border-color: #bbb;
+}
+
 .series-prev,
 .series-next{
   text-decoration: none;
@@ -803,6 +885,36 @@ body::after {
   box-shadow:
     0 1px 2px rgba(160,80,2,0.20),
     0 4px 10px rgba(0,0,0,0.22);
+}
+
+/* Feature card heading (shared look) */
+.endorsement-feature-card h2,
+.shelf-feature-card h2{
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+/* Feature items (Endorsement only for now) */
+.endorsement-feature-item h3{
+  margin: 0 0 4px;
+  font-size: 1.2rem;
+}
+
+/* Separator between items */
+.endorsement-feature-item + .endorsement-feature-item{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(84,64,42,0.14);
+}
+
+.endorsement-feature-card h2,
+.shelf-feature-card h2{
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
 }
 
 .endorsement-feature-card h3,
@@ -883,6 +995,16 @@ body::after {
 .endorsement-feature-more a:hover,
 .shelf-feature-more a:hover{
   text-decoration: underline;
+}
+
+.foundation-menu-note{
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(84,64,42,0.16);
+  font-size: 0.92rem;
+  line-height: 1.3;
+  font-style: italic;
+  color: rgba(27,27,27,0.72);
 }
 
 .endorsement-howto{
@@ -1100,23 +1222,29 @@ body::after {
    CONTACT FORM
    ====================================================== */
 
-.essay-body form {
-  margin-top: 24px;
+{#   
+.contact-form,
+.contact-form form{
+  width: 100%;
+  max-width: 700px;
 }
 
-.essay-body form p {
+.contact-form p{
   margin-bottom: 16px;
 }
 
-.essay-body label {
+.contact-form label{
   display: block;
+  width: 100%;
   font-weight: 500;
   color: rgba(27,27,27,0.9);
 }
 
-.essay-body input,
-.essay-body textarea {
-  width: 100%;
+.contact-form input,
+.contact-form textarea{
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
   margin-top: 6px;
   padding: 10px 12px;
   font: inherit;
@@ -1126,12 +1254,12 @@ body::after {
   border-radius: 8px;
 }
 
-.essay-body textarea {
+.contact-form textarea{
   resize: vertical;
-  min-height: 180px;
+  min-height: 220px;
 }
 
-.essay-body button {
+.contact-form button{
   padding: 10px 16px;
   font: inherit;
   cursor: pointer;
@@ -1141,8 +1269,40 @@ body::after {
   border-radius: 8px;
 }
 
-.essay-body button:hover {
+.contact-form button:hover{
   color: #d6b78d;
+}
+#}
+
+form.contact-form{
+  width: 100%;
+  max-width: 600px;
+}
+
+form.contact-form label{
+  display: block;
+  width: 100%;
+  font-weight: 500;
+  color: rgba(27,27,27,0.9);
+}
+
+form.contact-form input,
+form.contact-form textarea{
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  font: inherit;
+  color: rgba(27,27,27,0.95);
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(171,124,78,0.35);
+  border-radius: 8px;
+}
+
+form.contact-form textarea{
+  resize: vertical;
+  min-height: 220px;
 }
 
 /* ======================================================

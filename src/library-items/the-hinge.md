@@ -16,12 +16,21 @@ topics:
 projects:
   - endorsement
 publication_status: public
-featured: false
-feature_home: false
-document_file: /assets/uploads/the-hinge-expanded-20260425.pdf
+featured: true
+feature_home: true
+feature_home_order: 1
+feature_section: endorsement
+feature_section_order: 1
+document_file: /assets/uploads/the-hinge-20260425.pdf
 document_type: pdf
 author: Michael T. Bradfield
-related_reading: []
+related_reading:
+  - title: The General, the President, and Me
+    url: /endorsement/the-general-the-president-and-me/
+    type: reflection
+  - title: “Excuse Me—Could You Point Me to the Office of Endorsement?”
+    url: /endorsement/the-office-of-endorsement/
+    type: reflection
 tags:
   - reflection
 ---

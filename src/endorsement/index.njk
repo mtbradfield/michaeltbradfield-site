@@ -51,7 +51,13 @@ description: Essays, reflections, and documents related to endorsement ministry
         <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
           Foundational Documents
         </button>
-        <div class="endorsement-nav-menu">
+        <div class="endorsement-nav-menu endorsement-nav-menu--foundational">
+
+          <p class="foundation-menu-note">
+            If you are new to this material, the White Paper provides the fullest introduction.
+            Executive Summaries and Briefs offer shorter pathways into the same work.
+          </p>
+
           <ul class="link-list series-link-list">
 
             {% for item in collections.endorsementItems | sort(attribute="data.series_title") %}
@@ -84,27 +90,36 @@ description: Essays, reflections, and documents related to endorsement ministry
     <main class="endorsement-main">
 
       <section class="endorsement-feature">
-        {% for item in collections.endorsementItems %}
-          {% if item.data.title == "The Hinge" %}
-            <article class="endorsement-feature-card">
-              <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+        <article class="endorsement-feature-card">
+          <h2>Featured Works</h2>
 
-              {% if item.data.subtitle %}
-                <p class="endorsement-feature-subtitle">{{ item.data.subtitle }}</p>
-              {% endif %}
+          {% for item in collections.endorsementItems | sort(attribute="data.feature_section_order") %}
+            {% if item.data.feature_section == "endorsement" %}
 
-              {% if item.data.feature_excerpt %}
-                <div class="endorsement-feature-excerpt">
-                  <p>{{ item.data.feature_excerpt }}</p>
-                </div>
-              {% endif %}
+              <div class="endorsement-feature-item">
 
-              <p class="endorsement-feature-more">
-                <a href="{{ item.url }}">Continue reading →</a>
-              </p>
-            </article>
-          {% endif %}
-        {% endfor %}
+                <h3>
+                  <a href="{{ item.url }}">{{ item.data.title }}</a>
+                </h3>
+
+                {% if item.data.subtitle %}
+                  <p class="endorsement-feature-subtitle">
+                    {{ item.data.subtitle }}
+                  </p>
+                {% endif %}
+
+                {% if item.data.feature_blurb or item.data.feature_excerpt %}
+                  <div class="endorsement-feature-excerpt">
+                    <p>{{ item.data.feature_blurb or item.data.feature_excerpt }}</p>
+                  </div>
+                {% endif %}
+
+              </div>
+
+            {% endif %}
+          {% endfor %}
+
+        </article>
       </section>
 
       <section class="endorsement-howto panel">

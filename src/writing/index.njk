@@ -71,14 +71,12 @@ description: Essays, reflections, and working papers
     </div>
 
     <div class="panel">
-      <h2>Recent Additions</h2>
+      <h2>Recent Works</h2>
       <p>Newly added or recently revised pieces.</p>
 
       <ul class="link-list">
-        {% for post in collections.essays %}
-          {% if loop.index0 < 5 %}
-            <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-          {% endif %}
+        {% for post in collections.recentWorks %}
+          <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
         {% endfor %}
       </ul>
     </div>

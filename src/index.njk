@@ -44,17 +44,17 @@ description: Essays on faith, leadership, and public life
     </section>
 
     <section class="panel panel--featured">
-  <h2>Selected Work</h2>
-  <p>
-    Exploring faith, public life, institutional integrity, and the questions that emerge where they meet.
-  </p>
+      <h2>Featured Works</h2>
+      <p>
+        Exploring faith, public life, institutional integrity, and the questions that emerge where they meet.
+      </p>
 
-  {% for item in collections.featuredHome %}
-    <div class="featured-item">
-      <a href="{{ item.url }}">{{ item.data.title }}</a>
-    </div>
-  {% endfor %}
-</section>
+      {% for item in collections.featuredHome %}
+        <div class="featured-item">
+          <a href="{{ item.url }}">{{ item.data.title }}</a>
+        </div>
+      {% endfor %}
+    </section>
 
   </div>
 

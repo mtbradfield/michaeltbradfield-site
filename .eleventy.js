@@ -8,6 +8,16 @@ module.exports = function(eleventyConfig) {
     }
   });
 
+  eleventyConfig.addCollection("recentWorks", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    return item.data.publication_status === "public" && item.url;
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.revised || a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.revised || b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  }).slice(0, 5);
+});
+
   eleventyConfig.addCollection("essays", function(collectionApi) {
   return collectionApi.getAll().filter(item => {
     const formMatch = item.data.form === "essay";
@@ -41,6 +51,24 @@ module.exports = function(eleventyConfig) {
     const dateA = new Date(a.data.first_written || "1900-01-01");
     const dateB = new Date(b.data.first_written || "1900-01-01");
     return dateB - dateA; // newest first
+  });
+});
+
+eleventyConfig.addCollection("notesFeatured", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const formMatch = item.data.form === "note";
+    const formsMatch = Array.isArray(item.data.forms) && item.data.forms.includes("note");
+    const isNote = formMatch || formsMatch;
+
+    return (
+      isNote &&
+      item.data.featured === true &&
+      item.data.feature_section === "note"
+    );
+  }).sort((a, b) => {
+    const orderA = Number(a.data.feature_section_order || 999);
+    const orderB = Number(b.data.feature_section_order || 999);
+    return orderA - orderB;
   });
 });
 

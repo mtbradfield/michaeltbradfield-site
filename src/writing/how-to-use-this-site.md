@@ -4,14 +4,14 @@ title: How to Use This Site
 description: Orientation to the structure and use of the library
 permalink: /writing/how-to-use-this-site/
 
-form: note
+form: []
 
 back_link: /
 back_label: Home
 
 tags:
-  - note
-  - form-note
+  - 
+  - 
 ---
 
 ## How to Use This Site

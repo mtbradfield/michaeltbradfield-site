@@ -37,6 +37,51 @@ description: Short-form writing, observations, and fragments in development
 
     <main class="endorsement-main shelf-main">
 
+      <section class="endorsement-feature">
+        <article class="endorsement-feature-card">
+          <h2>Starting Points</h2>
+          <p class="endorsement-feature-subtitle">
+            Notes that help orient this shelf.
+          </p>
+
+      {# <div class="endorsement-feature-item">
+            <h3>
+              <a href="/writing/how-to-use-this-site/">How to Use This Site</a>
+            </h3>
+
+            <div class="endorsement-feature-excerpt">
+              <p>Orientation to the structure and use of the library.</p>
+            </div>
+          </div>
+       #}   
+
+          {% for item in collections.notes | sort(attribute="data.feature_section_order") %}
+            {% if item.data.feature_section == "note" %}
+              <div class="endorsement-feature-item">
+
+                <h3>
+                  <a href="{{ item.url }}">{{ item.data.title }}</a>
+                </h3>
+
+                {% if item.data.subtitle %}
+                  <p class="endorsement-feature-subtitle">
+                    {{ item.data.subtitle }}
+                  </p>
+                {% endif %}
+
+                {% if item.data.feature_blurb or item.data.feature_excerpt or item.data.description %}
+                  <div class="endorsement-feature-excerpt">
+                    <p>{{ item.data.feature_blurb or item.data.feature_excerpt or item.data.description }}</p>
+                  </div>
+                {% endif %}
+
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </article>
+      </section>
+
       <section class="panel browse-panel">
         <div class="browse-intro">
           <h2>About This Shelf</h2>
@@ -52,47 +97,51 @@ description: Short-form writing, observations, and fragments in development
 
           {% for item in collections.notes | sort(attribute="data.shelf_sort_title") %}
 
-            {% if item.data.series_slug %}
+            {% if item.data.feature_section != "note" and item.data.title != "How to Use This Site" %}
 
-              {% if renderedSeries.indexOf(item.data.series_slug) == -1 %}
+              {% if item.data.series_slug %}
 
-                <article class="browse-series">
-                  <h3 class="browse-series-title">
-                    <a href="/series/{{ item.data.series_slug }}/">
-                      {{ item.data.series_title }} Series
-                    </a>
-                  </h3>
+                {% if renderedSeries.indexOf(item.data.series_slug) == -1 %}
 
-                  {% for seriesItem in collections.notes | sort(attribute="data.series_order") %}
-                    {% if seriesItem.data.series_slug == item.data.series_slug %}
-                      <div class="browse-series-item">
-                        <a href="{{ seriesItem.url }}">
-                          Part {{ seriesItem.data.series_order }}: {{ seriesItem.data.title }}
-                        </a>
-                      </div>
+                  <article class="browse-series">
+                    <h3 class="browse-series-title">
+                      <a href="/series/{{ item.data.series_slug }}/">
+                        {{ item.data.series_title }} Series
+                      </a>
+                    </h3>
+
+                    {% for seriesItem in collections.notes | sort(attribute="data.series_order") %}
+                      {% if seriesItem.data.series_slug == item.data.series_slug and seriesItem.data.feature_section != "note" and seriesItem.data.title != "How to Use This Site" %}
+                        <div class="browse-series-item">
+                          <a href="{{ seriesItem.url }}">
+                            Part {{ seriesItem.data.series_order }}: {{ seriesItem.data.title }}
+                          </a>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </article>
+
+                  {% set renderedSeries = renderedSeries + item.data.series_slug + "," %}
+
+                {% endif %}
+
+              {% else %}
+
+                <article class="browse-item">
+                  <a class="browse-item-link" href="{{ item.url }}">
+                    <h3 class="browse-item-title">{{ item.data.title }}</h3>
+
+                    {% if item.data.subtitle %}
+                      <p class="browse-item-subtitle">{{ item.data.subtitle }}</p>
                     {% endif %}
-                  {% endfor %}
+
+                    {% if item.data.description %}
+                      <p class="browse-item-blurb">{{ item.data.description }}</p>
+                    {% endif %}
+                  </a>
                 </article>
 
-                {% set renderedSeries = renderedSeries + item.data.series_slug + "," %}
-
               {% endif %}
-
-            {% else %}
-
-              <article class="browse-item">
-                <a class="browse-item-link" href="{{ item.url }}">
-                  <h3 class="browse-item-title">{{ item.data.title }}</h3>
-
-                  {% if item.data.subtitle %}
-                    <p class="browse-item-subtitle">{{ item.data.subtitle }}</p>
-                  {% endif %}
-
-                  {% if item.data.description %}
-                    <p class="browse-item-blurb">{{ item.data.description }}</p>
-                  {% endif %}
-                </a>
-              </article>
 
             {% endif %}
 

@@ -16,8 +16,8 @@ document_type: pdf
 author: Michael T. Bradfield
 first_written: March 2026
 
-featured: true
-feature_home: true
+featured: false
+feature_home: false
 feature_home_order: 1
 feature_section: pluralism
 feature_section_order: 1

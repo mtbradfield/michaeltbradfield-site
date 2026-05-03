@@ -12,59 +12,24 @@
 </head>
 
 <body class="body--essay">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="site-title" href="/">Michael T. Bradfield</a>
 
-      <nav class="site-nav">
+{% include "partials/site-header.njk" %}
 
-        <div class="site-nav-item site-nav-item--dropdown">
-          <button class="site-nav-toggle" type="button" aria-expanded="false">
-            Writing
-          </button>
-          <div class="site-nav-menu">
-            <ul class="link-list">
-              <li><a href="/writing/">The Library</a></li>
-              <li><a href="/essays/">Essays</a></li>
-              <li><a href="/reflections/">Reflections</a></li>
-              <li><a href="/working-papers/">Working Papers</a></li>
-              <li><a href="/notes/">Notes</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="site-nav-item site-nav-item--dropdown">
-          <button class="site-nav-toggle" type="button" aria-expanded="false">
-            Projects
-          </button>
-          <div class="site-nav-menu">
-            <ul class="link-list">
-              <li><a href="/endorsement/">Endorsement</a></li>
-              <li><a href="/pluralism/">Pluralism</a></li>
-              <li><a href="/covenantal-economics/">Covenantal Economics</a></li>
-              <!-- <li><a href="/voter-identification/">Voter Identification</a></li> -->
-              <li><a href="/transforming-community/">Transforming Community</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <a href="/writing/">Library</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-
-      </nav>
-    </div>
-  </header>
-
-  <main class="container page-surface page-surface--essay">
+   <main class="container page-surface page-surface--essay">
     <article class="essay-page">
 
-      <p class="essay-back">
-        <a href="{{ back_link or '/' }}"
-           onclick="if (document.referrer && document.referrer.includes(window.location.origin)) { event.preventDefault(); window.history.back(); return false; }">
-          ← Back
-        </a>
-      </p>
+      <div class="essay-top-controls">
+        <p class="essay-back">
+          <a href="{{ back_link or '/' }}"
+             onclick="if (document.referrer && document.referrer.includes(window.location.origin)) { event.preventDefault(); window.history.back(); return false; }">
+            ← Back
+          </a>
+        </p>
+
+        <button id="contrast-toggle" class="contrast-toggle" type="button">
+          Reading Contrast
+        </button>
+      </div>
 
       <header class="piece-header">
         <h1 class="piece-title">{{ title }}</h1>
@@ -185,5 +150,56 @@
       <span><a href="/contact/">Contact</a></span>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("contrast-toggle");
+
+      if (!toggle) return;
+
+      // Load saved setting
+      if (localStorage.getItem("contrastMode") === "true") {
+        document.documentElement.classList.add("high-contrast");
+      }
+
+      toggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("high-contrast");
+
+        localStorage.setItem(
+          "contrastMode",
+          document.documentElement.classList.contains("high-contrast")
+        );
+      });
+    });
+  </script>
+
+  <script>
+  const btn = document.getElementById("contrast-toggle");
+
+  if (btn) {
+    function setContrastState(enabled) {
+      if (enabled) {
+        document.body.classList.add("high-contrast");
+        btn.textContent = "Standard View";
+        localStorage.setItem("contrast", "on");
+      } else {
+        document.body.classList.remove("high-contrast");
+        btn.textContent = "Reading Contrast";
+        localStorage.setItem("contrast", "off");
+      }
+    }
+
+    // Load saved preference
+    const saved = localStorage.getItem("contrast");
+    setContrastState(saved === "on");
+
+    // Toggle on click
+    btn.addEventListener("click", function () {
+      const isOn = document.body.classList.contains("high-contrast");
+      setContrastState(!isOn);
+    });
+  }
+</script>
+
 </body>
 </html>
