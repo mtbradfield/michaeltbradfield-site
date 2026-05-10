@@ -22,12 +22,28 @@ description: Essays, reflections, and documents related to endorsement ministry
           Framing Reflections
         </button>
         <div class="endorsement-nav-menu">
-          <ul class="link-list">
-            {% for item in collections.endorsementItems %}
-              {% if item.data.form == "reflection" %}
+          <ul class="link-list series-link-list">
+
+            {% for item in collections.endorsementItems | sort(attribute="data.series_title") %}
+              {% if item.data.form == "reflection" and item.data.series_slug and item.data.series_order == 1 %}
+
+                <li class="series-group-title">
+                  <a href="/series/{{ item.data.series_slug }}/">{{ item.data.series_title }}</a>
+                </li>
+
+                {% for seriesItem in collections.endorsementItems | sort(attribute="data.series_order") %}
+                  {% if seriesItem.data.form == "reflection" and seriesItem.data.series_slug == item.data.series_slug %}
+                    <li class="series-group-item">
+                      <a href="{{ seriesItem.url }}">{{ seriesItem.data.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+
+              {% elif item.data.form == "reflection" and not item.data.series_slug %}
                 <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
               {% endif %}
             {% endfor %}
+
           </ul>
         </div>
       </div>
@@ -37,16 +53,31 @@ description: Essays, reflections, and documents related to endorsement ministry
           Interpretive Essays
         </button>
         <div class="endorsement-nav-menu">
-          <ul class="link-list">
-            {% for item in collections.endorsementItems %}
-              {% if item.data.form == "essay" %}
+          <ul class="link-list series-link-list">
+
+            {% for item in collections.endorsementItems | sort(attribute="data.series_title") %}
+              {% if item.data.form == "essay" and item.data.series_slug and item.data.series_order == 1 %}
+
+                <li class="series-group-title">
+                  <a href="/series/{{ item.data.series_slug }}/">{{ item.data.series_title }}</a>
+                </li>
+
+                {% for seriesItem in collections.endorsementItems | sort(attribute="data.series_order") %}
+                  {% if seriesItem.data.form == "essay" and seriesItem.data.series_slug == item.data.series_slug %}
+                    <li class="series-group-item">
+                      <a href="{{ seriesItem.url }}">{{ seriesItem.data.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+
+              {% elif item.data.form == "essay" and not item.data.series_slug %}
                 <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
               {% endif %}
             {% endfor %}
+
           </ul>
         </div>
       </div>
-
       <div class="endorsement-nav-group">
         <button class="endorsement-nav-toggle" type="button" aria-expanded="true">
           Foundational Documents

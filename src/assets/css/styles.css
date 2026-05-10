@@ -1437,6 +1437,37 @@ form.contact-form textarea{
   font-weight: 600;
 }
 
+.essay-body img,
+.essay-content img,
+.readable-content img,
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+}
+
+.essay-figure {
+  margin: 2rem auto;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.essay-figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid rgba(80, 55, 35, 0.35);
+}
+
+.essay-figure figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+}
+
 .about-page h1{
   margin-bottom: 12px;
 }

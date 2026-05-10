@@ -2,6 +2,10 @@
 layout: layouts/essay.njk
 title: "The Ministry of Ecclesiastical Endorsement: Location and Language"
 subtitle: Part 1 - Where It Sits Matters
+=======
+title: "The Ministry of Ecclesiastical Endorsement: Location and Language - Part 1"
+subtitle: Where It Sits Matters
+>>>>>>> d551746 (Refine site navigation, reading contrast, contact form, and shelf displays)
 epigraph: Governance, Authority, and the Location of a Ministry
 description: "This essay explores the structural location of the Ministry of
   Ecclesiastical Endorsement within the life of the Church. It considers how
@@ -13,6 +17,8 @@ description: "This essay explores the structural location of the Ministry of
   held?"
 permalink_base: /endorsement/
 permalink_slug: /where-it-sits-matters/
+=======
+permalink_slug: where-it-sits-matters/
 permalink: /endorsement/where-it-sits-matters/
 form: essay
 level: working
@@ -35,12 +41,27 @@ series_description: This two-part series offers an interpretive examination of
   and descriptive dimensions of a ministry that is often present in practice but
   less visible in the Church’s formal life.
 series_type: modular
+=======
+series_type: sequential
+>>>>>>> d551746 (Refine site navigation, reading contrast, contact form, and shelf displays)
 publication_status: public
 featured: false
 feature_home: false
 document_file: /assets/uploads/the-ministry-of-ecclesiastical-endorsement-location-and-language-part-1-20260507.pdf
 document_type: pdf
 author: Michael T. Bradfield
+=======
+figures:
+  - image: /assets/uploads/structure-and-language-table.png
+author: Michael T. Bradfield
+first_written: May 2026
+related_reading:
+  - title: "The Ministry of Ecclesiastical Endorsement: Location and Language - Part
+      2"
+    url: /endorsement/what-the-church-says-it-is/
+  - title: "Ministry of Ecclesiastical Endorsement: Compilation"
+    url: /endorsement/bod-compilation/
+>>>>>>> d551746 (Refine site navigation, reading contrast, contact form, and shelf displays)
 tags:
   - essay
 ---
@@ -102,14 +123,24 @@ At the time, this may have appeared to be a practical adjustment. The Church was
 
 And for a time, it did. But over the years that followed, additional changes took place—each one modest in itself, but cumulative in effect. The division became a section. The section, in time, was reduced further to an office or functional responsibility within the agency. The language of the Discipline gradually shifted as well, describing the work in shorter and more generalized terms.
 
+And for a time, it did. But over the years that followed, additional changes took place—each one modest in itself, but cumulative in effect. The division became a section. The section, in time, was reduced further to an office or functional responsibility within the agency. 
+
 None of these changes altered the basic fact that clergy were being endorsed and sent into institutional settings. The ministry continued. But the way it was described—and the way it was located within the Church’s structure—became less distinct.
 
 Seen across time, a pattern begins to emerge. The ministry is not removed. It is not discontinued. Instead, it is progressively compressed within the Church’s organizational structure. What had once been a clearly defined body becomes a function within a division, then a subsection of that work, and eventually a responsibility described in only a few lines of text.
 
 At each step, the work continues. But the place where responsibility is held becomes less visible. That pattern is easier to see when viewed across several generations of the Church’s organization.
 
-??????????
-
+<figure class="essay-figure">
+  <img src="/assets/uploads/structure-and-language-table.png" 
+alt="Timeline Table Showing the Structural Movement of the Ministry of Endorsement">
+<!--  
+<figcaption>
+    Generational Shifts in the Structure and Description of the Ministry of Endorsement.
+  </figcaption>
+-->
+</figure>
+>>
 What stands out in that progression is not a change in purpose, but a steady shift in location. As the ministry moves downward within these structures, it is not only governance that becomes less direct; the place where this knowledge is held becomes less visible—and less immediately accessible.
 
 The ministry that once stood as a distinct expression of the Church’s work is now situated within layers of structure that were designed for broader programmatic purposes. Governance remains present, but it is exercised at a level removed from the ministry itself. The connection to episcopal authority is still real, but it is mediated through those structures rather than held in direct proximity to the work.

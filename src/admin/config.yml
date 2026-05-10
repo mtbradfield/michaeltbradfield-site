@@ -118,27 +118,10 @@ collections:
           - { label: "Engagement", value: "engagement" }
           - { label: "Facilitation", value: "facilitation" }
 
-      - label: "Series Slug"
-        name: "series_slug"
-        widget: "string"
-        required: false
-        hint: "Short lowercase slug, e.g. endorsement-rationale"
-
-      - label: "Series Title"
-        name: "series_title"
-        widget: "string"
-        required: false
-
-      - label: "Series Order"
-        name: "series_order"
-        widget: "number"
-        required: false
-        value_type: "int"
-
-      - label: "Series Description"
-        name: "series_description"
-        widget: "text"
-        required: false
+      - { label: "Series Slug", name: "series_slug", widget: "string", required: false, hint: "Short lowercase slug, e.g. endorsement-rationale" }
+      - { label: "Series Title", name: "series_title", widget: "string", required: false }
+      - { label: "Series Order", name: "series_order", widget: "number", required: false, value_type: "int" }
+      - { label: "Series Description", name: "series_description", widget: "text", required: false }
 
       - label: "Series Type"
         name: "series_type"
@@ -147,7 +130,7 @@ collections:
         options:
           - { label: "Sequential (read in order)", value: "sequential" }
           - { label: "Modular (read in any order)", value: "modular" }
-        hint: "Use 'Sequential' for essays meant to be read in order. Use 'Modular' for document sets where readers may enter at any point."  
+        hint: "Use 'Sequential' for essays meant to be read in order. Use 'Modular' for document sets where readers may enter at any point."
 
       - label: "Publication Status"
         name: "publication_status"
@@ -196,12 +179,23 @@ collections:
       - { label: "Feature Blurb", name: "feature_blurb", widget: "text", required: false }
 
       - { label: "Document File", name: "document_file", widget: "file", required: false }
+
       - label: "Document Type"
         name: "document_type"
         widget: "select"
         required: false
         options:
           - { label: "PDF", value: "pdf" }
+
+      - label: "Supporting Images / Figures"
+        name: "figures"
+        widget: "list"
+        required: false
+        summary: "{{fields.caption}}"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Caption", name: "caption", widget: "string", required: false }
+          - { label: "Alt Text", name: "alt", widget: "string", required: false }
 
       - { label: "Author", name: "author", widget: "string", default: "Michael T. Bradfield" }
       - { label: "First Written", name: "first_written", widget: "string", required: false }
@@ -238,4 +232,19 @@ collections:
           - { label: "Working Paper", value: "working-paper" }
           - { label: "Note", value: "note" }
 
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: false
+        buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+        editor_components:
+          - image
+          - code-block
