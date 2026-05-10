@@ -1,11 +1,7 @@
 ---
 layout: layouts/essay.njk
-title: "The Ministry of Ecclesiastical Endorsement: Location and Language"
-subtitle: Part 1 - Where It Sits Matters
-=======
 title: "The Ministry of Ecclesiastical Endorsement: Location and Language - Part 1"
 subtitle: Where It Sits Matters
->>>>>>> d551746 (Refine site navigation, reading contrast, contact form, and shelf displays)
 epigraph: Governance, Authority, and the Location of a Ministry
 description: "This essay explores the structural location of the Ministry of
   Ecclesiastical Endorsement within the life of the Church. It considers how
@@ -17,8 +13,6 @@ description: "This essay explores the structural location of the Ministry of
   held?"
 permalink_base: /endorsement/
 permalink_slug: /where-it-sits-matters/
-=======
-permalink_slug: where-it-sits-matters/
 permalink: /endorsement/where-it-sits-matters/
 form: essay
 level: working
@@ -41,16 +35,13 @@ series_description: This two-part series offers an interpretive examination of
   and descriptive dimensions of a ministry that is often present in practice but
   less visible in the Church’s formal life.
 series_type: modular
-=======
 series_type: sequential
->>>>>>> d551746 (Refine site navigation, reading contrast, contact form, and shelf displays)
 publication_status: public
 featured: false
 feature_home: false
 document_file: /assets/uploads/the-ministry-of-ecclesiastical-endorsement-location-and-language-part-1-20260507.pdf
 document_type: pdf
 author: Michael T. Bradfield
-=======
 figures:
   - image: /assets/uploads/structure-and-language-table.png
 author: Michael T. Bradfield
@@ -61,7 +52,6 @@ related_reading:
     url: /endorsement/what-the-church-says-it-is/
   - title: "Ministry of Ecclesiastical Endorsement: Compilation"
     url: /endorsement/bod-compilation/
->>>>>>> d551746 (Refine site navigation, reading contrast, contact form, and shelf displays)
 tags:
   - essay
 ---
