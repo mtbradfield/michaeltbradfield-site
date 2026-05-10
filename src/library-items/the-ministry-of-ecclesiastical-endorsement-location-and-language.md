@@ -34,14 +34,12 @@ series_description: This two-part series offers an interpretive examination of
   Together, these essays provide a framework for recognizing both the structural
   and descriptive dimensions of a ministry that is often present in practice but
   less visible in the Church’s formal life.
-series_type: modular
 series_type: sequential
 publication_status: public
 featured: false
 feature_home: false
 document_file: /assets/uploads/the-ministry-of-ecclesiastical-endorsement-location-and-language-part-1-20260507.pdf
 document_type: pdf
-author: Michael T. Bradfield
 figures:
   - image: /assets/uploads/structure-and-language-table.png
 author: Michael T. Bradfield
