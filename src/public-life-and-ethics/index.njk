@@ -6,7 +6,7 @@ description: Writing on public responsibility, moral consequence, constitutional
 
 <div class="endorsement-page shelf-page">
 
-  <p class="essay-back"><a href="/writing/">← Back to The Library</a></p>
+  <p class="essay-back"><a href="/writing/">← Back</a></p>
 
   <div class="endorsement-layout shelf-layout">
 
@@ -46,15 +46,15 @@ description: Writing on public responsibility, moral consequence, constitutional
           </p>
         </div>
 
-        <div class="browse-list browse-list--series">
+<div class="browse-list browse-list--series">
 
-          {% set renderedSeries = [] %}
+          {% set renderedSeries = "" %}
 
-          {% for item in collections.essays | sort(attribute="data.title") %}
+          {% for item in collections.topicPublicLifeEthics | sort(attribute="data.shelf_sort_title") %}
 
             {% if item.data.series_slug %}
 
-              {% if item.data.series_slug not in renderedSeries and item.data.series_order == 1 %}
+              {% if renderedSeries.indexOf(item.data.series_slug) == -1 %}
 
                 <article class="browse-series">
                   <h3 class="browse-series-title">
@@ -63,7 +63,7 @@ description: Writing on public responsibility, moral consequence, constitutional
                     </a>
                   </h3>
 
-                  {% for seriesItem in collections.essays | sort(attribute="data.series_order") %}
+                  {% for seriesItem in collections.topicPublicLifeEthics | sort(attribute="data.series_order") %}
                     {% if seriesItem.data.series_slug == item.data.series_slug %}
                       <div class="browse-series-item">
                         <a href="{{ seriesItem.url }}">
@@ -74,7 +74,8 @@ description: Writing on public responsibility, moral consequence, constitutional
                   {% endfor %}
                 </article>
 
-                {% set renderedSeries = renderedSeries %}
+                {% set renderedSeries = renderedSeries + item.data.series_slug + "," %}
+
               {% endif %}
 
             {% else %}

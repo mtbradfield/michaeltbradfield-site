@@ -11,8 +11,7 @@ form: note
 level: working
 forms:
   - note
-topics:
-  - public-life-and-ethics
+topics: null
 publication_status: public
 featured: true
 feature_home: false

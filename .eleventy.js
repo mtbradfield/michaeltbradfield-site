@@ -75,7 +75,7 @@ eleventyConfig.addCollection("notesFeatured", function(collectionApi) {
 eleventyConfig.addCollection("topicPublicLifeEthics", function(collectionApi) {
   return collectionApi.getAll().filter(item => {
     const topics = Array.isArray(item.data.topics) ? item.data.topics : [];
-    return topics.includes("public-life-ethics");
+    return topics.includes("public-life-and-ethics");
   }).sort((a, b) => {
     const dateA = new Date(a.data.first_written || "1900-01-01");
     const dateB = new Date(b.data.first_written || "1900-01-01");
