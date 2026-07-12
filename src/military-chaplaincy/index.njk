@@ -1,0 +1,92 @@
+---
+layout: layouts/base.njk
+title: Military Chaplaincy
+description: Reflections, essays, issue papers, briefs, and submissions related to military chaplaincy, religious accommodation, personnel policy, and public service.
+---
+
+<div class="endorsement-page shelf-page">
+
+<p class="essay-back"><a href="/writing/">← Back to The Library</a></p>
+
+  <div class="endorsement-layout shelf-layout">
+
+    <aside class="endorsement-nav shelf-nav">
+      <h1>Military Chaplaincy</h1>  
+
+      <p class="endorsement-subtitle shelf-subtitle">
+        Reflections, essays, issue papers, briefs, and submissions related to military chaplaincy,
+        religious accommodation, personnel policy, and public service.
+      </p>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/military-chaplaincy/reflections-and-essays/">
+          Reflections &amp; Essays
+        </a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/military-chaplaincy/issues-and-analysis/">
+          Issues &amp; Analysis
+        </a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group active">
+        <a class="browse-nav-link" href="/military-chaplaincy/briefs-and-submissions/">
+          Briefs &amp; Submissions
+        </a>
+      </div>
+    </aside>
+
+    <main class="endorsement-main shelf-main">
+
+      <section class="endorsement-feature shelf-feature panel">
+        <h2>Featured Works</h2>
+
+        {% for item in collections.featuredMilitaryChaplaincy %}
+          <div class="endorsement-feature-item">
+
+            <h3>
+              <a href="{{ item.url }}">{{ item.data.title }}</a>
+            </h3>
+
+            {% if item.data.subtitle %}
+              <p class="endorsement-feature-subtitle">
+                {{ item.data.subtitle }}
+              </p>
+            {% endif %}
+
+            {% if item.data.feature_blurb or item.data.feature_excerpt %}
+              <div class="endorsement-feature-excerpt shelf-feature-excerpt">
+                <p>{{ item.data.feature_blurb or item.data.feature_excerpt }}</p>
+              </div>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+      </section>
+
+      <section class="endorsement-howto shelf-howto panel">
+        <h2>About This Section</h2>
+
+        <p>
+          This shelf gathers my work related to military chaplaincy, religious accommodation,
+          personnel policy, ecclesiastical endorsement, and the institutional practice of
+          supporting the free exercise of religion within the armed forces.
+        </p>
+
+        <p>
+          Some documents are reflective essays intended for a broad audience. Others are issue
+          papers, briefing documents, formal submissions, or policy analyses prepared for
+          denominational leaders, governmental agencies, advocacy organizations, and professional
+          colleagues. Together they represent an ongoing body of work shaped by decades of service
+          as a military chaplain, endorsed clergy, and institutional leader.
+        </p>
+
+      </section>
+
+    </main>
+
+  </div>
+</div>
+
+{% include "partials/shelf-script.njk" %}

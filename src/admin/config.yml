@@ -43,6 +43,7 @@ collections:
           - { label: "Notes", value: "/notes/" }
           - { label: "Endorsement", value: "/endorsement/" }
           - { label: "Pluralism", value: "/pluralism/" }
+          - { label: "Military Chaplaincy", value: "military-chaplaincy" }
           - { label: "Covenantal Economics", value: "/covenantal-economics/" }
           - { label: "Transforming Community", value: "/transforming-community/" }
           - { label: "Voter Identification", value: "/voter-identification/" }
@@ -105,9 +106,30 @@ collections:
         options:
           - { label: "Endorsement", value: "endorsement" }
           - { label: "Pluralism", value: "pluralism" }
+          - { label: "Military Chaplaincy", value: "military-chaplaincy" }
           - { label: "Covenantal Economics", value: "covenantal-economics" }
           - { label: "Transforming Community", value: "transforming-community" }
           - { label: "Voter Identification", value: "voter-identification" }
+
+      - label: "Military Chaplaincy Section"
+        name: "chaplaincy_section"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - { label: "Reflections & Essays", value: "reflections-and-essays" }
+          - { label: "Issues & Analysis", value: "issues-and-analysis" }
+          - { label: "Briefs & Submissions", value: "briefs-and-submissions" }
+
+      - label: "Pluralism Section"
+        name: "pluralism_section"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - { label: "Framing Reflections", value: "framing-reflections" }
+          - { label: "Analysis & Essays", value: "analysis-and-essays" }
+          - { label: "Core Documents", value: "core-documents" }
 
       - label: "Transforming Community Lane"
         name: "tc_lane"
@@ -163,6 +185,7 @@ collections:
         options:
           - { label: "Endorsement", value: "endorsement" }
           - { label: "Pluralism", value: "pluralism" }
+          - { label: "Military Chaplaincy", value: "military-chaplaincy" }
           - { label: "Covenantal Economics", value: "covenantal-economics" }
           - { label: "Transforming Community", value: "transforming-community" }
           - { label: "Voter Identification", value: "voter-identification" }

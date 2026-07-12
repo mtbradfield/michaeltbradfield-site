@@ -1,0 +1,106 @@
+---
+layout: layouts/base.njk
+title: Briefs & Submissions
+description: Formal briefs, submissions, recommendations, and policy documents prepared for governmental, denominational, and institutional audiences.
+---
+
+<div class="endorsement-page shelf-page">
+
+  <p class="essay-back"><a href="/military-chaplaincy/">← Back to Military Chaplaincy</a></p>
+
+  <div class="endorsement-layout shelf-layout">
+
+    <aside class="endorsement-nav shelf-nav">
+      <h1>Briefs &amp; Submissions</h1>
+
+        <p class="endorsement-subtitle shelf-subtitle">
+        Formal briefs, submissions, recommendations, and policy documents prepared for
+        governmental agencies, denominational leaders, advocacy organizations, and
+        institutional partners.
+        </p>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/military-chaplaincy/reflections-and-essays/">Reflections &amp; Essays</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link" href="/military-chaplaincy/issues-and-analysis/">Issues &amp; Analysis</a>
+      </div>
+
+      <div class="shelf-nav-group browse-nav-group">
+        <a class="browse-nav-link is-active" href="/military-chaplaincy/briefs-and-submissions/">Briefs &amp; Submissions</a>
+      </div>
+    </aside>
+
+    <main class="endorsement-main shelf-main">
+
+      <section class="panel browse-panel">
+        <div class="browse-intro">
+          <h2>About This Section</h2>
+            <p>
+            This section gathers formal briefs, submissions, recommendations, assessments,
+            and policy documents prepared for governmental agencies, denominational leaders,
+            advocacy organizations, and other institutional audiences concerned with military
+            chaplaincy and religious accommodation.
+            </p>
+        </div>
+
+        <div class="browse-list browse-list--series">
+
+          {% set renderedSeries = "" %}
+
+          {% for item in collections.militaryChaplaincyBriefsSubmissions | sort(attribute="data.shelf_sort_title") %}
+
+            {% if item.data.series_slug %}
+
+              {% if renderedSeries.indexOf(item.data.series_slug) == -1 %}
+
+                <article class="browse-series">
+                  <h3 class="browse-series-title">
+                    <a href="/series/{{ item.data.series_slug }}/">
+                      {{ item.data.series_title }} Series
+                    </a>
+                  </h3>
+
+                  {% for seriesItem in collections.militaryChaplaincyBriefsSubmissions | sort(attribute="data.series_order") %}
+                    {% if seriesItem.data.series_slug == item.data.series_slug %}
+                      <div class="browse-series-item">
+                        <a href="{{ seriesItem.url }}">
+                          Part {{ seriesItem.data.series_order }}: {{ seriesItem.data.title }}
+                        </a>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </article>
+
+                {% set renderedSeries = renderedSeries + item.data.series_slug + "," %}
+
+              {% endif %}
+
+            {% else %}
+
+              <article class="browse-item">
+                <a class="browse-item-link" href="{{ item.url }}">
+                  <h3 class="browse-item-title">{{ item.data.title }}</h3>
+
+                  {% if item.data.subtitle %}
+                    <p class="browse-item-subtitle">{{ item.data.subtitle }}</p>
+                  {% endif %}
+
+                  {% if item.data.description %}
+                    <p class="browse-item-blurb">{{ item.data.description }}</p>
+                  {% endif %}
+                </a>
+              </article>
+
+            {% endif %}
+
+          {% endfor %}
+
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+</div>

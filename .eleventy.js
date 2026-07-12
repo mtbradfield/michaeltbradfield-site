@@ -116,6 +116,124 @@ eleventyConfig.addCollection("topicSpiritualityAndCommunity", function(collectio
   });
 });
 
+eleventyConfig.addCollection("militaryChaplaincyReflectionsEssays", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const sections = Array.isArray(item.data.chaplaincy_section)
+      ? item.data.chaplaincy_section
+      : [];
+
+    const isPublic = item.data.publication_status !== "private";
+
+    return sections.includes("reflections-and-essays") && isPublic;
+
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  });
+});
+
+eleventyConfig.addCollection("militaryChaplaincyIssuesAnalysis", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const sections = Array.isArray(item.data.chaplaincy_section)
+      ? item.data.chaplaincy_section
+      : [];
+
+    const isPublic = item.data.publication_status !== "private";
+
+    return sections.includes("issues-and-analysis") && isPublic;
+
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  });
+});
+
+eleventyConfig.addCollection("militaryChaplaincyBriefsSubmissions", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const sections = Array.isArray(item.data.chaplaincy_section)
+      ? item.data.chaplaincy_section
+      : [];
+
+    const isPublic = item.data.publication_status !== "private";
+
+    return sections.includes("briefs-and-submissions") && isPublic;
+
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  });
+});
+
+eleventyConfig.addCollection("featuredMilitaryChaplaincy", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const isFeatured = item.data.featured === true;
+    const isMilitaryChaplaincy =
+      item.data.feature_section === "military-chaplaincy";
+    const isPublic = item.data.publication_status !== "private";
+
+    return isFeatured && isMilitaryChaplaincy && isPublic;
+  }).sort((a, b) => {
+    const orderA = Number(a.data.feature_section_order) || 999;
+    const orderB = Number(b.data.feature_section_order) || 999;
+
+    return orderA - orderB;
+  });
+});
+
+eleventyConfig.addCollection("pluralismFramingReflections", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const sections = Array.isArray(item.data.pluralism_section)
+      ? item.data.pluralism_section
+      : [];
+
+    const isPublic = item.data.publication_status !== "private";
+
+    return sections.includes("framing-reflections") && isPublic;
+
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  });
+});
+
+eleventyConfig.addCollection("pluralismAnalysisEssays", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const sections = Array.isArray(item.data.pluralism_section)
+      ? item.data.pluralism_section
+      : [];
+
+    const isPublic = item.data.publication_status !== "private";
+
+    return sections.includes("analysis-and-essays") && isPublic;
+
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  });
+});
+
+eleventyConfig.addCollection("pluralismCoreDocuments", function(collectionApi) {
+  return collectionApi.getAll().filter(item => {
+    const sections = Array.isArray(item.data.pluralism_section)
+      ? item.data.pluralism_section
+      : [];
+
+    const isPublic = item.data.publication_status !== "private";
+
+    return sections.includes("core-documents") && isPublic;
+
+  }).sort((a, b) => {
+    const dateA = new Date(a.data.first_written || "1900-01-01");
+    const dateB = new Date(b.data.first_written || "1900-01-01");
+    return dateB - dateA;
+  });
+});
+
 eleventyConfig.addCollection("endorsementItems", function(collectionApi) {
   return collectionApi.getAll().filter(item => {
     const projectMatch =
